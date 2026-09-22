@@ -1,0 +1,3106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:title" content="Transcribe Notes">
+  <meta property="og:description" content="Secure AI-powered transcription and note generation for healthcare consultation. No subscription, just pay per use.">
+  <meta property="og:image" content="https://transcribe-notes.netlify.app/Preview.png">
+  <meta property="og:url" content="https://transcribe-notes.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Transcribe Notes">
+  <meta name="twitter:description" content="Secure AI-powered transcription and note generation for healthcare consultation. No subscription, just pay per use.">
+  <meta name="twitter:image" content="https://transcribe-notes.netlify.app/Preview.png">
+  <!-- New: Meta description for crawlers -->
+  <meta name="description"
+        content="Secure, AI-powered medical transcription and clinical note generation for healthcare professionals. Ideal for documenting hypertension, diabetes, COPD, and medication regimens." />
+
+  <!-- New: Meta keywords (for legacy bidders) -->
+  <meta name="keywords"
+        content="medical transcription, clinical notes, AI for doctors, pharmaceutical, medications, hypertension, diabetes, COPD, healthcare professional, semaglutide, Ozempic, apixaban, Eliquis, lisdexamfetamine, Aduvanz, omalizumab, Xolair, fremanezumab, Ajovy, rivaroxaban, Xarelto, alirocumab, Praluent, methylphenidate, Ritalin, dapagliflozin, Forxiga, atorvastatin, Lipitor, mirabegron, Betmiga, methotrexate, Metex, valsartan, sakubitril, Entresto, empagliflozin, Jardiance, tree pollen, Itulazax, mesalazine, Asacol, grass pollen, Grazax, erenumab, Aimovig, metoprolol, Selo-Zok, formoterol, glykopyrroniumbromid"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="googlecbb704de00a7add2" />
+  <title id="page-title">Transcribe Notes – AI Medical Transcription & Clinical Notes for Doctors</title>
+
+
+  <!-- Import Google Fonts -->
+  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- New: JSON-LD schema for medical/pharma context -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+  "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://transcribe-notes.netlify.app/#organization",
+        "name": "Transcribe Notes",
+        "url": "https://transcribe-notes.netlify.app/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://transcribe-notes.netlify.app/#website",
+        "url": "https://transcribe-notes.netlify.app/",
+        "name": "Transcribe Notes",
+      "publisher": {
+          "@id": "https://transcribe-notes.netlify.app/#organization"
+        }
+      },
+      {
+        "@type": "MedicalWebPage",
+        "@id": "https://transcribe-notes.netlify.app/#medicalwebpage",
+        "url": "https://transcribe-notes.netlify.app/",
+        "name": "Transcribe Notes – Medical Transcription for Clinicians",
+        "description": "An AI-powered medical transcription and clinical note tool for doctors, covering conditions like hypertension, diabetes, COPD, and medication management."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://transcribe-notes.netlify.app/#software",
+        "name": "Transcribe Notes",
+        "applicationCategory": "MedicalApplication",
+        "operatingSystem": "All",
+        "description": "Secure AI-powered medical transcription and note generation for healthcare professionals. Supports documentation of medications such as Atorvastatin, Metformin, Seretide.",
+        "url": "https://transcribe-notes.netlify.app/",
+        "author": {
+          "@id": "https://transcribe-notes.netlify.app/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+         "priceCurrency": "USD"
+        },
+        "audience": {
+         "@type": "Audience",
+          "audienceType": "Healthcare Professional"
+        },
+        "keywords": "semaglutide, Ozempic, apixaban, Eliquis, lisdexamfetamine, Aduvanz, omalizumab, Xolair, fremanezumab, Ajovy, rivaroxaban, Xarelto, alirocumab, Praluent, methylphenidate, Ritalin, dapagliflozin, Forxiga, atorvastatin, Lipitor, mirabegron, Betmiga, methotrexate, Metex, valsartan, sakubitril, Entresto, empagliflozin, Jardiance, tree pollen, Itulazax, mesalazine, Asacol, grass pollen, Grazax, erenumab, Aimovig, metoprolol, Selo-Zok, formoterol"
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Inter', 'Roboto', sans-serif;
+      font-weight: 400;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Make all form UI use the same font as the page text */
+    input, select, textarea, button {
+      font-family: inherit;
+      font-weight: 400;
+    }
+
+    /* Most “field header” labels should not look bold */
+    label {
+      font-family: inherit;
+      font-weight: 400;
+    }
+    header {
+      background: linear-gradient(135deg, #5a9 0%, #489 100%);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-center {
+      display: inline-grid;
+      grid-template-columns: auto auto auto; /* mic | title | spacer */
+      column-gap: 12px; /* adjust “snugness” here */
+      align-items: center;
+      position: relative;
+      left: 65px; /* move the whole group right; tweak value */
+      top: 9px;   /* move the whole group DOWN; tweak value */
+      transform: scale(1.15); /* change this: 1.00 normal, 1.05, 1.10, etc */
+      transform-origin: center;
+    }
+    .title-block {
+      display: inline-block;
+      text-align: left;
+      max-width: 900px;
+    }
+    header h1 {
+      font-family: 'Inter', 'Roboto', sans-serif;
+      font-weight: 450;
+      font-size: 48px;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+    header p {
+      font-family: 'Inter', 'Roboto', sans-serif;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    .header-mic {
+      width: 82px; /* adjust size here */
+      height: auto;
+      opacity: 0.95;
+      pointer-events: none;
+      user-select: none;
+    }
+    .header-mic-spacer {
+      width: 82px; /* adjust size here */
+      height: 1px;
+    }
+
+    @media (max-width: 850px) {
+      .header-mic, .header-mic-spacer { display: none; }
+    }
+    /* Language Icon & Dropdown */
+    #lang-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
+.accordion-header:first-child {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+    #lang-container img {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
+    }
+    #lang-select {
+      padding: 5px;
+      font-size: 18px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    p {
+      font-size: 16px;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    input[type="text"]:focus {
+      border-color: #66afe9;
+      box-shadow: 0 0 8px rgba(102,175,233,0.6);
+      outline: none;
+    }
+    /* Mask sensitive fields with dots without changing visual appearance */
+    input.masked-input {
+      -webkit-text-security: disc;
+      text-security: disc;
+    }
+
+    /* Provider credentials: 2-column layout */
+    .provider-columns {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+      margin-top: 10px;
+    }
+    fieldset.provider-column {
+      flex: 0 1 460px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0 16px;
+      border: 0; /* remove default fieldset border */
+      min-width: 0; /* prevents overflow in flex containers */
+    }
+    fieldset.provider-column legend {
+      padding: 0;
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .provider-column.non-gdpr {
+      border-left: 1px solid rgba(0, 0, 0, 0.12);
+      padding-left: 32px;
+    }    
+    .provider-column .column-footnote {
+      margin: 0 0 18px;
+      font-size: 13px;
+      color: #666;
+    }
+    .provider-column p {
+      margin: 12px 0 6px;
+    }
+    .credentials-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      .provider-columns {
+        flex-direction: column;
+        gap: 18px;
+      }
+      fieldset.provider-column {
+        flex-basis: auto;
+        max-width: 100%;
+      }
+      .provider-column.non-gdpr {
+        border-left: 0;
+        padding-left: 16px;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        padding-top: 18px;
+      }
+    }
+    button {
+      background-color: #5a9;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #489;
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+    .keys-io-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 10px 0 0 0;
+    }
+    .keys-io-row button {
+      margin: 0; /* override the global 10px to keep the row tight */
+    }
+    /* Smaller Import/Export buttons only */
+    .keys-io-btn {
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 8px;
+      min-width: 110px;
+    }
+
+    /* Compact Import/Export Keys modals */
+    #importKeysModalBackdrop,
+    #exportKeysModalBackdrop,
+    #cloudRestoreModalBackdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 3500;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    #importKeysModalBackdrop.active,
+    #exportKeysModalBackdrop.active,
+    #cloudRestoreModalBackdrop.active {
+      display: flex;
+    }
+    #importKeysModal,
+    #exportKeysModal,
+    #cloudRestoreModal {
+      width: min(92vw, 460px);
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      padding: 14px 16px 16px;
+      text-align: left;
+    }
+    #importKeysModal .mini-modal__header,
+    #exportKeysModal .mini-modal__header,
+    #cloudRestoreModal .mini-modal__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    #importKeysModalTitle,
+    #exportKeysModalTitle,
+    #cloudRestoreModalTitle {
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+    }
+    #importKeysModalX,
+    #exportKeysModalX,
+    #cloudRestoreModalX {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 26px;
+      line-height: 1;
+      padding: 0 6px;
+      color: #d11;
+    }
+    .mini-modal__option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 0;
+    }
+    .mini-modal__help {
+      margin: 6px 0 12px;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.35;
+    }
+    .mini-modal__notice {
+      margin: 0 0 12px;
+      padding: 10px 11px;
+      border: 1px solid rgba(72, 153, 153, 0.35);
+      border-radius: 10px;
+      background: rgba(85, 170, 153, 0.08);
+      color: #35484a;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .mini-modal__field-label {
+      display: block;
+      margin: 9px 0 5px;
+      font-size: 12px;
+      color: #444;
+    }
+    .mini-modal__password {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      font: inherit;
+      font-size: 14px;
+    }
+    .mini-modal__password:focus {
+      border-color: #66afe9;
+      box-shadow: 0 0 6px rgba(102, 175, 233, 0.45);
+      outline: none;
+    }
+    #importKeysJsonText {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      resize: vertical;
+      min-height: 110px;
+      max-height: 240px;
+    }
+    .mini-modal__actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .mini-modal__status {
+      min-height: 1.35em;
+      margin: 10px 0 0;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .cloud-restore-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 10px 0;
+      padding: 10px 11px;
+      border: 1px solid #d3dfda;
+      border-radius: 10px;
+      background: #fbfdfc;
+      color: #33443d;
+      font-size: 13px;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+    .cloud-restore-option[hidden] {
+      display: none;
+    }
+    .cloud-restore-option input {
+      margin: 2px 0 0;
+      flex: 0 0 auto;
+    }
+    /* Discreet "ghost" button for Clear keys */
+    .keys-io-btn--ghost-green {
+      background: transparent;
+      color: #2e7d32;
+      border: 1px solid rgba(46, 125, 50, 0.45);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-width: 120px;
+      opacity: 0.9;
+    }
+    .keys-io-btn--ghost-green:hover {
+      /* Overrides the global button:hover background */
+      background-color: rgba(46, 125, 50, 0.10);
+      opacity: 1;
+    }
+    .keys-io-btn--ghost-green .btn-icon {
+      font-size: 14px;
+      line-height: 1;
+    }
+    #keysIoHint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+    }
+    #keysIoStatus {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .ad-revenue-message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+      display: none !important; /* TEMP: hide ad-revenue message */
+    }
+   /* New Horizontal Accordion (Tabbed Interface) */
+    .accordion {
+      margin: 20px auto;
+      /* make this section wider so 5 tabs fit without wrapping/scrolling */
+      max-width: 1280px;              /* tweak: 1100 / 1200 / 1400 */
+      width: calc(100% - 40px);       /* keeps nice side padding on small screens */
+    }
+    .accordion-headers {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+     flex-wrap: nowrap;           /* keep all 5 on ONE line */
+     overflow-x: auto;            /* if too tight, scroll instead of wrapping */
+     -webkit-overflow-scrolling: touch;
+     padding: 4px 0;              /* tiny vertical breathing room */
+    }
+    .accordion-header {
+      background-color: #5a9;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    }
+
+    /* Slightly tighter tabs on smaller screens */
+    @media (max-width: 900px) {
+      .accordion-header {
+        padding: 8px 14px;
+        font-size: 16px;
+      }
+    }
+    .accordion-header:hover {
+      background-color: #489;
+    }
+    .accordion-header.active {
+      background-color: #489;
+    }
+    /* New CSS for the API Guide Button */
+    #apiGuideButton {
+      border: 2px solid #333;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    }
+    .accordion-content-container {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: left;
+      min-height: 100px;
+    }
+    .accordion-hidden-content {
+      display: none;
+   }
+  
+    /* AWS Bedrock Guide Modal (opened from the "Guide" link next to AWS Bedrock) */
+    #bedrockGuideView {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: white;
+      border: 2px solid #ccc;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 3000;
+      text-align: left; /* override body { text-align: center; } */
+    }
+    #bedrockGuideView.active {
+      display: block;
+    }
+    #bedrockGuideView .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      background: white;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    #bedrockGuideClose {
+      /* Keep the close button visible while scrolling inside the modal */
+      position: sticky;
+      top: 12px;
+      float: right;
+      font-size: 30px;
+      line-height: 1;
+      border: none;
+      background: transparent;
+      color: #d11;            /* RED so it's visible on white */
+      cursor: pointer;
+      padding: 0 6px;
+      margin: 0;              /* global button adds margin */
+      z-index: 3001;          /* ensure it's above content */
+    }
+    /* Prevent the floated close button from affecting the layout below */
+    #bedrockGuideHeading {
+      clear: both;
+    }
+    #bedrockGuideClose:hover {
+      opacity: 0.8;
+    }
+    #bedrockGuideText {
+      white-space: pre-wrap;
+      font-family: 'Inter', 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0;
+      text-align: left; /* ensure wrapped lines start at left edge */
+     }
+
+    /* Inline "Guide" buttons should look like links (and must NOT navigate / change hash) */
+    .inline-guide-link {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      color: #06c;
+      text-decoration: underline;
+      cursor: pointer;
+      font: inherit;
+      line-height: inherit;
+      transition: none;
+    }
+    .inline-guide-link:hover { opacity: 0.85; }
+
+    /* Soniox / Requesty guide modals. These intentionally match the existing
+       AWS Bedrock guide window while using shared classes for maintainability. */
+    .provider-guide-view {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      box-sizing: border-box;
+      background: white;
+      border: 2px solid #ccc;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 3004;
+      text-align: left;
+    }
+    .provider-guide-view.active {
+      display: block;
+    }
+    .provider-guide-close {
+      position: sticky;
+      top: 12px;
+      float: right;
+      font-size: 30px;
+      line-height: 1;
+      border: none;
+      background: transparent;
+      color: #d11;
+      cursor: pointer;
+      padding: 0 6px;
+      margin: 0;
+      z-index: 3005;
+    }
+    .provider-guide-close:hover {
+      opacity: 0.8;
+    }
+    .provider-guide-heading {
+      clear: both;
+    }
+    .provider-guide-text {
+      white-space: pre-wrap;
+      font-family: 'Inter', 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0;
+      text-align: left;
+    }
+
+    /* Google Vertex Guide Modal (opened from the "Guide" link next to Google Vertex) */
+    #vertexGuideView {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: white;
+      border: 2px solid #ccc;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 3002;
+      text-align: left; /* override body { text-align: center; } */
+    }
+    #vertexGuideView.active {
+      display: block;
+    }
+    #vertexGuideClose {
+      position: sticky;
+      top: 12px;
+      float: right;
+      font-size: 30px;
+      line-height: 1;
+      border: none;
+      background: transparent;
+      color: #d11;
+      cursor: pointer;
+      padding: 0 6px;
+      margin: 0;
+      z-index: 3003;
+    }
+    #vertexGuideClose:hover {
+      opacity: 0.8;
+    }
+    #vertexGuideText {
+      white-space: pre-wrap;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0;
+      text-align: left; /* ensure wrapped lines start at left edge */
+    }
+
+</style>
+ 
+</head>
+<body>
+  <script>
+    // OAuth popup callback. The authorization code is returned only to the
+    // same-origin app and is exchanged there with PKCE (no client secret).
+    // BroadcastChannel is a fallback for browsers that sever window.opener
+    // while the popup is visiting Microsoft's cross-origin sign-in page.
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const state = params.get("state") || "";
+      const isMicrosoftCallback = state.startsWith("whisper-ms-") &&
+        (params.has("code") || params.has("error"));
+      if (!isMicrosoftCallback) return;
+
+      const payload = {
+        type: "whisper-microsoft-oauth-callback",
+        state,
+        code: params.get("code") || "",
+        error: params.get("error") || "",
+        errorDescription: params.get("error_description") || ""
+      };
+
+      try {
+        if (window.opener && window.opener !== window) {
+          window.opener.postMessage(payload, window.location.origin);
+        }
+      } catch {}
+
+      let callbackChannel = null;
+      try {
+        if (typeof window.BroadcastChannel === "function") {
+          callbackChannel = new window.BroadcastChannel(`whisper-ms-oauth-${state}`);
+          callbackChannel.postMessage(payload);
+        }
+      } catch {}
+
+      // Give the opener time to receive the queued callback before closing.
+      window.setTimeout(() => {
+        try { callbackChannel?.close(); } catch {}
+        window.close();
+      }, 250);
+    })();
+  </script>
+
+  <!-- Language Dropdown -->
+  <div id="lang-container">
+    <img src="language-icon.png" alt="Language Icon">
+    <select id="lang-select">
+      <option value="en">English</option>
+      <option value="no">Norsk</option>
+      <option value="sv">Svenska</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="it">Italiano</option>
+    </select>
+  </div>
+  
+  <header>    
+    <div class="header-center">
+      <img class="header-mic" src="mic-icon.png" alt="" aria-hidden="true">
+      <div class="title-block">
+        <h1 id="header-title">Transcribe Notes</h1>
+        <p id="header-subtitle">Advanced AI-Powered Speech-to-Text & Clinical Note Generation for Healthcare Consultations</p>
+      </div>
+      <div class="header-mic-spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <!-- This text is replaced by the language file (e.g. "Dont have an API-key yet? ...") -->
+    <p id="start-text">To get started, please enter your OpenAI API key:</p>
+
+    <div class="keys-io-row">
+      <button type="button" id="importKeysBtn" class="keys-io-btn">Import keys</button>
+      <button type="button" id="exportKeysBtn" class="keys-io-btn">Export keys</button>
+      <button
+        type="button"
+        id="clearKeysBtn"
+        class="keys-io-btn keys-io-btn--ghost-green"
+        title="Clears key, secret and URL fields only"
+      >
+        <span>Clear keys</span>
+      </button>
+      <input type="file" id="importKeysFile" accept="application/json" style="display:none">
+    </div>
+
+    <!-- Compact Export Keys modal -->
+    <div id="exportKeysModalBackdrop" aria-hidden="true">
+      <div id="exportKeysModal" role="dialog" aria-modal="true" aria-labelledby="exportKeysModalTitle">
+        <div class="mini-modal__header">
+          <div id="exportKeysModalTitle">Export keys</div>
+          <button type="button" id="exportKeysModalX" aria-label="Close">×</button>
+        </div>
+
+        <div id="exportKeysModalChoice">
+          <div class="mini-modal__notice">
+            Before exporting, make sure every key and secret you want to back up is filled in. The backup uses the current field values, so empty fields are saved as empty.
+          </div>
+          <button type="button" id="exportChoiceJson" class="keys-io-btn mini-modal__option">
+            Export as JSON file
+          </button>
+          <div class="mini-modal__help">
+            Saves the same JSON file as before on this device. The file contains readable keys, so store it securely.
+          </div>
+
+          <button type="button" id="exportChoiceOneDrive" class="keys-io-btn mini-modal__option">
+            Export to Microsoft OneDrive
+          </button>
+          <div class="mini-modal__help">
+            Sign in with your personal Microsoft account. The keys are encrypted in this browser before one backup file is saved in your own OneDrive. A new export replaces the previous OneDrive backup.
+          </div>
+
+          <button type="button" id="exportChoiceGoogleDrive" class="keys-io-btn mini-modal__option">
+            Export to Google Drive
+          </button>
+          <div class="mini-modal__help">
+            Sign in with your Google account. The keys are encrypted in this browser before one backup file is saved in your private Google Drive app storage. A new export replaces the previous Google Drive backup.
+          </div>
+        </div>
+
+        <div id="exportKeysModalOneDrive" style="display:none">
+          <div class="mini-modal__notice">
+            Create a separate encryption password. It is never uploaded or stored by this app. If you forget it, the OneDrive backup cannot be restored. Saving again replaces any previous backup.
+          </div>
+          <label class="mini-modal__field-label" for="exportOneDrivePassword">Encryption password (minimum 10 characters)</label>
+          <input type="password" id="exportOneDrivePassword" class="mini-modal__password" autocomplete="new-password">
+          <label class="mini-modal__field-label" for="exportOneDrivePasswordConfirm">Repeat password</label>
+          <input type="password" id="exportOneDrivePasswordConfirm" class="mini-modal__password" autocomplete="new-password">
+          <div class="mini-modal__actions">
+            <button type="button" id="exportOneDriveSaveBtn" class="keys-io-btn">Save to OneDrive</button>
+            <button type="button" id="exportOneDriveBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+
+        <div id="exportKeysModalGoogleDrive" style="display:none">
+          <div class="mini-modal__notice">
+            Create a separate encryption password. It is never uploaded or stored by this app. If you forget it, the Google Drive backup cannot be restored. Saving again replaces any previous Google Drive backup.
+          </div>
+          <label class="mini-modal__field-label" for="exportGoogleDrivePassword">Encryption password (minimum 10 characters)</label>
+          <input type="password" id="exportGoogleDrivePassword" class="mini-modal__password" autocomplete="new-password">
+          <label class="mini-modal__field-label" for="exportGoogleDrivePasswordConfirm">Repeat password</label>
+          <input type="password" id="exportGoogleDrivePasswordConfirm" class="mini-modal__password" autocomplete="new-password">
+          <div class="mini-modal__actions">
+            <button type="button" id="exportGoogleDriveSaveBtn" class="keys-io-btn">Save to Google Drive</button>
+            <button type="button" id="exportGoogleDriveBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+        <p id="exportKeysModalStatus" class="mini-modal__status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <!-- Compact Import Keys modal -->
+    <div id="importKeysModalBackdrop" aria-hidden="true">
+      <div id="importKeysModal" role="dialog" aria-modal="true" aria-labelledby="importKeysModalTitle">
+        <div class="mini-modal__header">
+          <div id="importKeysModalTitle">Import keys</div>
+          <button type="button" id="importKeysModalX" aria-label="Close">×</button>
+        </div>
+
+        <!-- Step 1: Choose JSON, Microsoft OneDrive, or Google Drive -->
+        <div id="importKeysModalChoice">
+          <div class="mini-modal__notice">
+            The key fields do not need to be filled in before importing. The backup fills them for you; review the fields afterwards and then select Enter.
+          </div>
+          <button type="button" id="importChoiceJson" class="keys-io-btn mini-modal__option">
+            Import from JSON
+          </button>
+          <div class="mini-modal__help">
+            Use the existing method: choose a keys JSON file from this device or paste its contents.
+          </div>
+
+          <button type="button" id="importChoiceOneDrive" class="keys-io-btn mini-modal__option">
+            Import from Microsoft OneDrive
+          </button>
+          <div class="mini-modal__help">
+            Sign in with the same personal Microsoft account and enter the encryption password. You must previously have exported a backup to OneDrive.
+          </div>
+
+          <button type="button" id="importChoiceGoogleDrive" class="keys-io-btn mini-modal__option">
+            Import from Google Drive
+          </button>
+          <div class="mini-modal__help">
+            Sign in with the same Google account and enter the encryption password. You must previously have exported a backup to Google Drive.
+          </div>
+        </div>
+
+        <!-- Step 2a: Existing JSON choices -->
+        <div id="importKeysModalJsonChoice" style="display:none">
+          <button type="button" id="importChoiceFile" class="keys-io-btn mini-modal__option">
+            Choose JSON file
+          </button>
+          <div class="mini-modal__help">
+            Choose a keys .json file from this device. Keys are stored only in this tab (session storage).
+          </div>
+
+          <button type="button" id="importChoicePaste" class="keys-io-btn mini-modal__option">
+            Paste JSON content
+          </button>
+          <div class="mini-modal__help">
+            Open the JSON in Dropbox or a similar service, copy the contents and paste it here.
+          </div>
+          <div class="mini-modal__actions">
+            <button type="button" id="importJsonBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+
+        <!-- Step 2b: Paste JSON -->
+        <div id="importKeysModalPaste" style="display:none">
+          <textarea id="importKeysJsonText" placeholder='Paste JSON here (example: {"data": {...}})'></textarea>
+          <div class="mini-modal__actions">
+            <button type="button" id="importKeysFetchBtn" class="keys-io-btn">Fetch</button>
+            <button type="button" id="importPasteBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+
+        <!-- Step 2c: Encrypted OneDrive backup -->
+        <div id="importKeysModalOneDrive" style="display:none">
+          <div class="mini-modal__notice">
+            This downloads the encrypted backup from your own OneDrive. A OneDrive backup must already have been created from Export keys. The password is used only in this browser.
+          </div>
+          <label class="mini-modal__field-label" for="importOneDrivePassword">Encryption password</label>
+          <input type="password" id="importOneDrivePassword" class="mini-modal__password" autocomplete="current-password">
+          <div class="mini-modal__actions">
+            <button type="button" id="importOneDriveFetchBtn" class="keys-io-btn">Import from OneDrive</button>
+            <button type="button" id="importOneDriveBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+
+        <!-- Step 2d: Encrypted Google Drive backup -->
+        <div id="importKeysModalGoogleDrive" style="display:none">
+          <div class="mini-modal__notice">
+            This downloads the encrypted backup from your private Google Drive app storage. A Google Drive backup must already have been created from Export keys. The password is used only in this browser.
+          </div>
+          <label class="mini-modal__field-label" for="importGoogleDrivePassword">Encryption password</label>
+          <input type="password" id="importGoogleDrivePassword" class="mini-modal__password" autocomplete="current-password">
+          <div class="mini-modal__actions">
+            <button type="button" id="importGoogleDriveFetchBtn" class="keys-io-btn">Import from Google Drive</button>
+            <button type="button" id="importGoogleDriveBackBtn" class="keys-io-btn keys-io-btn--ghost-green">Back</button>
+          </div>
+        </div>
+        <p id="importKeysModalStatus" class="mini-modal__status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <!-- Optional cloud restore shown only after keys were imported from that provider. -->
+    <div id="cloudRestoreModalBackdrop" aria-hidden="true">
+      <div id="cloudRestoreModal" role="dialog" aria-modal="true" aria-labelledby="cloudRestoreModalTitle">
+        <div class="mini-modal__header">
+          <div id="cloudRestoreModalTitle">Load cloud backups?</div>
+          <button type="button" id="cloudRestoreModalX" aria-label="Continue with local data">×</button>
+        </div>
+        <div id="cloudRestoreModalNotice" class="mini-modal__notice"></div>
+        <label id="cloudRestorePromptsOption" class="cloud-restore-option" hidden>
+          <input id="cloudRestorePrompts" type="checkbox" checked>
+          <span id="cloudRestorePromptsLabel">Prompt list</span>
+        </label>
+        <label id="cloudRestoreWorkspaceOption" class="cloud-restore-option" hidden>
+          <input id="cloudRestoreWorkspace" type="checkbox" checked>
+          <span id="cloudRestoreWorkspaceLabel">Workspace Set</span>
+        </label>
+        <div class="mini-modal__actions">
+          <button type="button" id="cloudRestoreContinue" class="keys-io-btn">Load selected</button>
+          <button type="button" id="cloudRestoreSkip" class="keys-io-btn keys-io-btn--ghost-green">Use local data</button>
+        </div>
+        <p id="cloudRestoreModalStatus" class="mini-modal__status" aria-live="polite"></p>
+      </div>
+    </div>
+    <p id="keysIoHint">
+      Back up keys as a JSON file, to Microsoft OneDrive, or to Google Drive. Import the backup later to refill the fields and avoid retyping.
+    </p>
+    <p id="keysIoStatus" aria-live="polite"></p>
+
+    <!-- Provider credentials (two columns) -->
+    <div class="provider-columns" id="provider-columns">
+      <!-- GDPR compliant -->
+      <fieldset class="provider-column gdpr">
+        <legend><span id="gdpr-column-title">GDPR compliant:</span></legend>
+        <p class="column-footnote" id="gdpr-column-footnote">(Full EU data residency/processing + zero data retention)</p>
+
+        <!-- New (Phase 1): Optional Soniox API Key -->
+        <p id="soniox-text">
+          Soniox API key (
+          <button
+            type="button"
+            id="soniox-guide-link"
+            class="inline-guide-link"
+          >Guide</button>
+          ):
+        </p>
+        <input type="text" id="sonioxKeyInput" placeholder="Enter Soniox API Key here" autocomplete="off" class="masked-input">
+        <br>
+      
+        <!-- New: AWS Bedrock proxy configuration (per-user) -->
+        <p id="bedrock-text">
+          AWS Bedrock (
+          <button
+            type="button"
+            id="bedrock-guide-link"
+            class="inline-guide-link"
+          >Guide</button>
+          ):
+        </p>
+        <div class="credentials-row">
+          <input
+            type="text"
+            id="bedrockBackendUrlInput"
+            placeholder="Bedrock backend URL (https://…lambda-url.eu-north-1.on.aws/)"
+            autocomplete="off"
+            class="masked-input"
+          >
+          <input
+            type="text"
+            id="bedrockBackendSecretInput"
+            placeholder="Bedrock backend secret"
+            autocomplete="off"
+            class="masked-input"
+          >
+        </div>
+
+        <!-- New: Optional Mistral (Voxtral) API Key -->
+        <p id="mistral-text">Mistral API key:</p>
+        <input type="text" id="mistralKeyInput" placeholder="Enter Mistral API Key here" autocomplete="off" class="masked-input">
+        <br>
+
+        <!-- Optional Requesty API Key (EU router; used for Claude Opus 5 Stockholm + other EU-hosted models) -->
+        <p id="requesty-text">
+          Requesty API key (
+          <button
+            type="button"
+            id="requesty-guide-link"
+            class="inline-guide-link"
+          >Guide</button>
+          ):
+        </p>
+        <input type="text" id="requestyKeyInput" placeholder="Enter Requesty API Key here" autocomplete="off" class="masked-input">
+        <br>
+      </fieldset>
+
+      <!-- Non-GDPR compliant -->
+      <fieldset class="provider-column non-gdpr">
+        <legend><span id="nongdpr-column-title">Non-GDPR compliant:</span></legend>
+        <p class="column-footnote" id="nongdpr-column-footnote">(Varying degrees of data retention + data processing/residency in US)</p>
+
+        <!-- New explicit label above the OpenAI field -->
+        <p id="openai-label">OpenAI API key:</p>
+        <input type="text" id="apiKeyInput" placeholder="Enter API Key here" autocomplete="off" class="masked-input">
+        <br>
+
+      </fieldset>
+    </div>
+    
+    <button id="enterTranscriptionBtn">Enter Transcription Tool</button>
+    <br>
+    <p class="ad-revenue-message" id="ad-revenue-message">
+      As this website is free to use and relies solely on ad revenue, please consent to personalized ads to help support the service.
+    </p>
+    <div id="offerText"></div>
+  </div>
+
+  <!-- New Horizontal Accordion -->
+  <div class="accordion">
+    <div class="accordion-headers">
+      <button class="accordion-header" data-content-id="modelsModalText">AI-models</button>
+      <button class="accordion-header" data-content-id="guide-p1">API Guide</button>
+      <button class="accordion-header" data-content-id="priceModalText">Price Information</button>
+      <button class="accordion-header" data-content-id="securityModalText">Security Information</button>
+      <button class="accordion-header" data-content-id="aboutModalText">About</button>
+    </div>
+    <div class="accordion-content-container">
+      <!-- Active content will be displayed here -->
+    </div>
+  </div>
+
+  <!-- Hidden Content Containers for Accordion -->
+  <div id="modelsModalText" class="accordion-hidden-content">
+    <!-- AI-models content (placeholder) -->
+    <div id="modelsModalText-content">test, test</div>
+  </div>
+  <div id="guide-p1" class="accordion-hidden-content">
+    <!-- API Guide content will be injected here -->
+    <div id="guide-p1-content"></div>
+  </div>
+  <div id="priceModalText" class="accordion-hidden-content">
+    <!-- Price Information content will be injected here -->
+    <div id="priceModalText-content"></div>
+  </div>
+  <div id="securityModalText" class="accordion-hidden-content">
+    <!-- Security Information content will be injected here -->
+    <div id="securityModalText-content"></div>
+  </div>
+  <div id="aboutModalText" class="accordion-hidden-content">
+    <!-- About content will be injected here -->
+    <div id="aboutModalText-content"></div>
+  </div>
+
+  <!-- Inline Script for API Key Handling and Consent -->
+  <script type="module">
+    import { PromptManager } from "./js/promptManager.js";
+    import { PromptCloudBackup } from "./js/features/prompt-cloud-backup.js";
+    import { CloudBackupSession } from "./js/features/cloud-backup-session.js";
+
+    // Helper function to set a cookie
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    [
+      "lemonfox_api_key",
+      "deepgram_api_key",
+      "gemini_api_key",
+      "vertex_backend_url",
+      "vertex_backend_secret"
+    ].forEach((key) => {
+      try { sessionStorage.removeItem(key); } catch {}
+    });
+
+    const enterTranscriptionBtn    = document.getElementById("enterTranscriptionBtn");
+    const apiKeyInput              = document.getElementById("apiKeyInput");
+    const sonioxKeyInput           = document.getElementById("sonioxKeyInput");
+    const mistralKeyInput          = document.getElementById("mistralKeyInput");
+    const requestyKeyInput         = document.getElementById("requestyKeyInput");
+    const bedrockBackendUrlInput    = document.getElementById("bedrockBackendUrlInput");
+    const bedrockBackendSecretInput = document.getElementById("bedrockBackendSecretInput");
+
+    // 1) Prefill all fields from sessionStorage (keys only live for this tab)
+    if (apiKeyInput) {
+      const storedOpenai = sessionStorage.getItem("openai_api_key") || "";
+      if (storedOpenai && !apiKeyInput.value) apiKeyInput.value = storedOpenai;
+    }
+    if (sonioxKeyInput) {
+      const storedSoniox = sessionStorage.getItem("soniox_api_key") || "";
+      if (storedSoniox && !sonioxKeyInput.value) sonioxKeyInput.value = storedSoniox;
+    }
+    if (mistralKeyInput) {
+      const storedMistral = sessionStorage.getItem("mistral_api_key") || "";
+      if (storedMistral && !mistralKeyInput.value) mistralKeyInput.value = storedMistral;
+    }
+    if (requestyKeyInput) {
+      const storedRequesty = sessionStorage.getItem("requesty_api_key") || "";
+      if (storedRequesty && !requestyKeyInput.value) requestyKeyInput.value = storedRequesty;
+    }
+    // Bedrock backend URL / secret
+    if (bedrockBackendUrlInput) {
+      const storedUrl = sessionStorage.getItem("bedrock_backend_url") || "";
+      if (storedUrl && !bedrockBackendUrlInput.value) bedrockBackendUrlInput.value = storedUrl;
+    }
+    if (bedrockBackendSecretInput) {
+      const storedSecret = sessionStorage.getItem("bedrock_backend_secret") || "";
+      if (storedSecret && !bedrockBackendSecretInput.value) bedrockBackendSecretInput.value = storedSecret;
+    }
+
+    // Import/Export key bundles: JSON + encrypted Microsoft OneDrive / Google Drive backups.
+    const exportKeysBtn  = document.getElementById("exportKeysBtn");
+    const importKeysBtn  = document.getElementById("importKeysBtn");
+    const clearKeysBtn   = document.getElementById("clearKeysBtn");
+    const importKeysFile = document.getElementById("importKeysFile");
+    const keysIoStatus   = document.getElementById("keysIoStatus");
+
+    const MICROSOFT_CLIENT_ID = "bec616c7-9967-4a96-b169-7cd2be16e9ac";
+    const MICROSOFT_AUTHORITY = "https://login.microsoftonline.com/consumers/oauth2/v2.0";
+    const MICROSOFT_SCOPES = ["Files.ReadWrite.AppFolder"];
+    const ONEDRIVE_BACKUP_FILENAME = "whisper-keys-backup.enc.json";
+    const ONEDRIVE_BACKUP_SCHEMA = "whisper.keys.onedrive.encrypted";
+    const ONEDRIVE_BACKUP_VERSION = 1;
+    const ONEDRIVE_KDF_ITERATIONS = 250000;
+    const GOOGLE_CLIENT_ID = "432102972557-hivdvjrkht1joq2pa2115phruhdgthua.apps.googleusercontent.com";
+    const GOOGLE_DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
+    const GOOGLE_DRIVE_BACKUP_FILENAME = "whisper-keys-backup.enc.json";
+    const GOOGLE_DRIVE_BACKUP_SCHEMA = "whisper.keys.google-drive.encrypted";
+    const GOOGLE_DRIVE_BACKUP_VERSION = 1;
+    const GOOGLE_DRIVE_KDF_ITERATIONS = 250000;
+    const GOOGLE_IDENTITY_SCRIPT_URL = "https://accounts.google.com/gsi/client";
+    const activeCloudAccessTokens = new Map();
+
+    const CLOUD_RESTORE_TEXT = {
+      en: {
+        title: "Load cloud backups?",
+        both: "You previously saved a prompt list and a Workspace Set to {provider}. Select what you want to load for this session. Anything you do not select will remain unchanged. The app will continue using the version already saved in this browser.",
+        prompts: "You previously saved a prompt list to {provider}. Would you like to load it for this session? If not, the prompts already saved in this browser will be used.",
+        workspace: "You previously saved a Workspace Set to {provider}. Would you like to load it for this session? If not, the Workspace Set already saved in this browser will be used.",
+        promptLabel: "Prompt list", workspaceLabel: "Workspace Set",
+        load: "Load selected", local: "Use local data",
+        checking: "Checking cloud backups…", loading: "Downloading and decrypting selected backups…",
+        legacyPrompt: "The {item} uses an older password. Enter its previous password to import it.",
+        migrate: "Update this older {item} backup to use your current Cloud Backup Password?",
+        failed: "Cloud restore failed: {error}\n\nThe data already stored in this browser has not been changed.",
+      },
+      no: {
+        title: "Laste inn skysikkerhetskopier?",
+        both: "Du har tidligere lagret en promptliste og et Workspace Set i {provider}. Velg hva du vil laste inn for denne økten. Alt du ikke velger, forblir uendret. Appen fortsetter å bruke versjonen som allerede er lagret i denne nettleseren.",
+        prompts: "Du har tidligere lagret en promptliste i {provider}. Vil du laste den inn for denne økten? Hvis ikke brukes promptene som allerede er lagret i nettleseren.",
+        workspace: "Du har tidligere lagret et Workspace Set i {provider}. Vil du laste det inn for denne økten? Hvis ikke brukes Workspace Set-et som allerede er lagret i nettleseren.",
+        promptLabel: "Promptliste", workspaceLabel: "Workspace Set",
+        load: "Last inn valgte", local: "Bruk lokale data",
+        checking: "Sjekker skysikkerhetskopier…", loading: "Laster ned og dekrypterer valgte sikkerhetskopier…",
+        legacyPrompt: "{item} bruker et eldre passord. Skriv inn det tidligere passordet for å importere den.",
+        migrate: "Oppdatere denne eldre sikkerhetskopien av {item} til ditt nåværende Cloud Backup-passord?",
+        failed: "Gjenoppretting fra skyen mislyktes: {error}\n\nDataene som allerede er lagret i nettleseren, er ikke endret.",
+      },
+      sv: {
+        title: "Läsa in molnsäkerhetskopior?",
+        both: "Du har tidigare sparat en promptlista och ett Workspace Set i {provider}. Välj vad du vill läsa in för den här sessionen. Allt du inte väljer förblir oförändrat. Appen fortsätter använda den version som redan finns sparad i den här webbläsaren.",
+        prompts: "Du har tidigare sparat en promptlista i {provider}. Vill du läsa in den för den här sessionen? Annars används promptarna som redan finns i webbläsaren.",
+        workspace: "Du har tidigare sparat ett Workspace Set i {provider}. Vill du läsa in det för den här sessionen? Annars används det Workspace Set som redan finns i webbläsaren.",
+        promptLabel: "Promptlista", workspaceLabel: "Workspace Set", load: "Läs in valda", local: "Använd lokala data",
+        checking: "Kontrollerar molnsäkerhetskopior…", loading: "Laddar ner och dekrypterar valda säkerhetskopior…",
+        legacyPrompt: "{item} använder ett äldre lösenord. Ange det tidigare lösenordet för att importera den.",
+        migrate: "Uppdatera denna äldre säkerhetskopia av {item} till ditt nuvarande Cloud Backup-lösenord?",
+        failed: "Molnåterställningen misslyckades: {error}\n\nData som redan finns i webbläsaren har inte ändrats.",
+      },
+      de: {
+        title: "Cloud-Sicherungen laden?",
+        both: "Sie haben zuvor eine Prompt-Liste und ein Workspace Set in {provider} gespeichert. Wählen Sie aus, was für diese Sitzung geladen werden soll. Alles, was Sie nicht auswählen, bleibt unverändert. Die App verwendet weiterhin die bereits in diesem Browser gespeicherte Version.",
+        prompts: "Sie haben zuvor eine Prompt-Liste in {provider} gespeichert. Möchten Sie sie für diese Sitzung laden? Andernfalls werden die bereits im Browser gespeicherten Prompts verwendet.",
+        workspace: "Sie haben zuvor ein Workspace Set in {provider} gespeichert. Möchten Sie es für diese Sitzung laden? Andernfalls wird das bereits im Browser gespeicherte Workspace Set verwendet.",
+        promptLabel: "Prompt-Liste", workspaceLabel: "Workspace Set", load: "Auswahl laden", local: "Lokale Daten verwenden",
+        checking: "Cloud-Sicherungen werden geprüft…", loading: "Ausgewählte Sicherungen werden heruntergeladen und entschlüsselt…",
+        legacyPrompt: "{item} verwendet ein älteres Passwort. Geben Sie zum Importieren das frühere Passwort ein.",
+        migrate: "Diese ältere Sicherung von {item} auf Ihr aktuelles Cloud-Backup-Passwort aktualisieren?",
+        failed: "Cloud-Wiederherstellung fehlgeschlagen: {error}\n\nDie bereits im Browser gespeicherten Daten wurden nicht verändert.",
+      },
+      fr: {
+        title: "Charger les sauvegardes cloud ?",
+        both: "Vous avez déjà enregistré une liste de prompts et un Workspace Set dans {provider}. Sélectionnez les éléments à charger pour cette session. Tout élément non sélectionné restera inchangé. L’application continuera d’utiliser la version déjà enregistrée dans ce navigateur.",
+        prompts: "Vous avez déjà enregistré une liste de prompts dans {provider}. Voulez-vous la charger pour cette session ? Sinon, les prompts déjà enregistrés dans le navigateur seront utilisés.",
+        workspace: "Vous avez déjà enregistré un Workspace Set dans {provider}. Voulez-vous le charger pour cette session ? Sinon, le Workspace Set déjà enregistré dans le navigateur sera utilisé.",
+        promptLabel: "Liste de prompts", workspaceLabel: "Workspace Set", load: "Charger la sélection", local: "Utiliser les données locales",
+        checking: "Vérification des sauvegardes cloud…", loading: "Téléchargement et déchiffrement des sauvegardes sélectionnées…",
+        legacyPrompt: "{item} utilise un ancien mot de passe. Saisissez l’ancien mot de passe pour l’importer.",
+        migrate: "Mettre à jour cette ancienne sauvegarde de {item} avec votre mot de passe Cloud Backup actuel ?",
+        failed: "Échec de la restauration cloud : {error}\n\nLes données déjà enregistrées dans le navigateur n’ont pas été modifiées.",
+      },
+      it: {
+        title: "Caricare i backup cloud?",
+        both: "Hai già salvato un elenco di prompt e un Workspace Set in {provider}. Seleziona cosa caricare per questa sessione. Tutto ciò che non selezioni rimarrà invariato. L’app continuerà a usare la versione già salvata in questo browser.",
+        prompts: "Hai già salvato un elenco di prompt in {provider}. Vuoi caricarlo per questa sessione? In caso contrario verranno usati i prompt già salvati nel browser.",
+        workspace: "Hai già salvato un Workspace Set in {provider}. Vuoi caricarlo per questa sessione? In caso contrario verrà usato il Workspace Set già salvato nel browser.",
+        promptLabel: "Elenco di prompt", workspaceLabel: "Workspace Set", load: "Carica selezionati", local: "Usa dati locali",
+        checking: "Controllo dei backup cloud…", loading: "Download e decrittazione dei backup selezionati…",
+        legacyPrompt: "{item} usa una password precedente. Inserisci la vecchia password per importarlo.",
+        migrate: "Aggiornare questo vecchio backup di {item} con l’attuale password Cloud Backup?",
+        failed: "Ripristino cloud non riuscito: {error}\n\nI dati già salvati nel browser non sono stati modificati.",
+      },
+    };
+
+    const KEY_FIELDS = [
+      { id: "apiKeyInput",               storageKey: "openai_api_key" },
+      { id: "sonioxKeyInput",            storageKey: "soniox_api_key" },
+      { id: "mistralKeyInput",           storageKey: "mistral_api_key" },
+      { id: "requestyKeyInput",          storageKey: "requesty_api_key" },
+      { id: "bedrockBackendUrlInput",    storageKey: "bedrock_backend_url" },
+      { id: "bedrockBackendSecretInput", storageKey: "bedrock_backend_secret" }
+    ];
+
+    function setKeysIoStatus(message, isError) {
+      const color = isError ? "#b00020" : "#2e7d32";
+      if (keysIoStatus) {
+        keysIoStatus.textContent = message || "";
+        keysIoStatus.style.color = color;
+      }
+
+      const activeModalStatus = document.getElementById("exportKeysModalBackdrop")?.classList.contains("active")
+        ? document.getElementById("exportKeysModalStatus")
+        : document.getElementById("importKeysModalBackdrop")?.classList.contains("active")
+          ? document.getElementById("importKeysModalStatus")
+          : null;
+      if (activeModalStatus) {
+        activeModalStatus.textContent = message || "";
+        activeModalStatus.style.color = color;
+      }
+    }
+
+    function clearCloudModalStatuses() {
+      ["exportKeysModalStatus", "importKeysModalStatus"].forEach((id) => {
+        const status = document.getElementById(id);
+        if (status) status.textContent = "";
+      });
+    }
+
+    function buildKeyBundle() {
+      const data = {};
+      KEY_FIELDS.forEach(({ id, storageKey }) => {
+        const el = document.getElementById(id);
+        const val = (el && typeof el.value === "string") ? el.value.trim() : "";
+        data[storageKey] = val;
+      });
+      return {
+        schema: "whisper-dev.keys",
+        version: 1,
+        createdAt: new Date().toISOString(),
+        data
+      };
+    }
+
+    function applyKeyBundle(bundle) {
+      if (!bundle) throw new Error("Empty file");
+
+      // Support both {data:{...}} and legacy flat {openai_api_key:"..."} shapes.
+      const data = (bundle.data && typeof bundle.data === "object") ? bundle.data : bundle;
+
+      KEY_FIELDS.forEach(({ id, storageKey }) => {
+        if (!(storageKey in data)) return;
+        const el = document.getElementById(id);
+        if (el && typeof data[storageKey] === "string") {
+          el.value = data[storageKey];
+        }
+        try { sessionStorage.setItem(storageKey, (data[storageKey] || "").toString()); } catch {}
+      });
+
+      // Back-compat: default active key remains OpenAI.
+      try { sessionStorage.setItem("user_api_key", (data.openai_api_key || "").toString()); } catch {}
+    }
+
+    function clearAllKeyFields() {
+      const ok = window.confirm(
+        "Clear all key/secret/url fields and remove them from this tab’s session-storage?"
+      );
+      if (!ok) return;
+
+      KEY_FIELDS.forEach(({ id, storageKey }) => {
+        const el = document.getElementById(id);
+        if (el && typeof el.value === "string") el.value = "";
+        try { sessionStorage.removeItem(storageKey); } catch {}
+      });
+      try { sessionStorage.removeItem("user_api_key"); } catch {}
+      activeCloudAccessTokens.clear();
+      CloudBackupSession.lockAll();
+      setKeysIoStatus("Cleared keys from fields and session.", false);
+    }
+
+    async function exportKeysToJsonFile() {
+      const pretty = JSON.stringify(buildKeyBundle(), null, 2);
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, "0");
+      const d = String(now.getDate()).padStart(2, "0");
+      const filename = `whisper-keys-${y}${m}${d}.json`;
+
+      if (typeof window.showSaveFilePicker === "function") {
+        const handle = await window.showSaveFilePicker({
+          suggestedName: filename,
+          types: [{ description: "JSON", accept: { "application/json": [".json"] } }]
+        });
+        const writable = await handle.createWritable();
+        await writable.write(pretty);
+        await writable.close();
+      } else {
+        const blob = new Blob([pretty], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+      setKeysIoStatus("Exported keys file. Store it somewhere safe.", false);
+    }
+
+    function bytesToBase64(bytes) {
+      let binary = "";
+      const chunkSize = 0x8000;
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+      }
+      return btoa(binary);
+    }
+
+    function base64ToBytes(value) {
+      const binary = atob(value);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+      return bytes;
+    }
+
+    function bytesToBase64Url(bytes) {
+      return bytesToBase64(bytes).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+    }
+
+    function randomBytes(length) {
+      const bytes = new Uint8Array(length);
+      crypto.getRandomValues(bytes);
+      return bytes;
+    }
+
+    async function deriveCloudBackupKey(password, salt, iterations, usages) {
+      const encoder = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        encoder.encode(password),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
+      return crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt, iterations, hash: "SHA-256" },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        false,
+        usages
+      );
+    }
+
+    async function encryptKeyBundleForCloud(bundle, password, config) {
+      if (!window.isSecureContext || !crypto.subtle) {
+        throw new Error("Secure browser encryption is unavailable on this page.");
+      }
+      const encoder = new TextEncoder();
+      const salt = randomBytes(16);
+      const iv = randomBytes(12);
+      const key = await deriveCloudBackupKey(password, salt, config.iterations, ["encrypt"]);
+      const aad = encoder.encode(`${config.schema}:${config.version}`);
+      const ciphertext = await crypto.subtle.encrypt(
+        { name: "AES-GCM", iv, additionalData: aad },
+        key,
+        encoder.encode(JSON.stringify(bundle))
+      );
+
+      return {
+        schema: config.schema,
+        version: config.version,
+        createdAt: new Date().toISOString(),
+        encryption: {
+          algorithm: "AES-256-GCM",
+          kdf: "PBKDF2-SHA-256",
+          iterations: config.iterations,
+          salt: bytesToBase64(salt),
+          iv: bytesToBase64(iv)
+        },
+        ciphertext: bytesToBase64(new Uint8Array(ciphertext))
+      };
+    }
+
+    async function decryptKeyBundleFromCloud(container, password, config) {
+      if (!container || container.schema !== config.schema ||
+          container.version !== config.version || !container.encryption) {
+        throw new Error(`The ${config.providerName} backup has an unsupported format.`);
+      }
+
+      const iterations = Number(container.encryption.iterations);
+      if (!Number.isInteger(iterations) || iterations < 100000 || iterations > 1000000) {
+        throw new Error(`The ${config.providerName} backup has invalid encryption settings.`);
+      }
+
+      try {
+        const decoder = new TextDecoder();
+        const encoder = new TextEncoder();
+        const salt = base64ToBytes(container.encryption.salt);
+        const iv = base64ToBytes(container.encryption.iv);
+        if (salt.length !== 16 || iv.length !== 12) throw new Error("Invalid encryption parameters");
+        const key = await deriveCloudBackupKey(password, salt, iterations, ["decrypt"]);
+        const aad = encoder.encode(`${config.schema}:${config.version}`);
+        const plaintext = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv, additionalData: aad },
+          key,
+          base64ToBytes(container.ciphertext)
+        );
+        return JSON.parse(decoder.decode(plaintext));
+      } catch {
+        throw new Error(`Incorrect password or damaged ${config.providerName} backup.`);
+      }
+    }
+
+    function encryptKeyBundleForOneDrive(bundle, password) {
+      return encryptKeyBundleForCloud(bundle, password, {
+        schema: ONEDRIVE_BACKUP_SCHEMA,
+        version: ONEDRIVE_BACKUP_VERSION,
+        iterations: ONEDRIVE_KDF_ITERATIONS
+      });
+    }
+
+    function decryptKeyBundleFromOneDrive(container, password) {
+      return decryptKeyBundleFromCloud(container, password, {
+        schema: ONEDRIVE_BACKUP_SCHEMA,
+        version: ONEDRIVE_BACKUP_VERSION,
+        providerName: "OneDrive"
+      });
+    }
+
+    function encryptKeyBundleForGoogleDrive(bundle, password) {
+      return encryptKeyBundleForCloud(bundle, password, {
+        schema: GOOGLE_DRIVE_BACKUP_SCHEMA,
+        version: GOOGLE_DRIVE_BACKUP_VERSION,
+        iterations: GOOGLE_DRIVE_KDF_ITERATIONS
+      });
+    }
+
+    function decryptKeyBundleFromGoogleDrive(container, password) {
+      return decryptKeyBundleFromCloud(container, password, {
+        schema: GOOGLE_DRIVE_BACKUP_SCHEMA,
+        version: GOOGLE_DRIVE_BACKUP_VERSION,
+        providerName: "Google Drive"
+      });
+    }
+
+    function getMicrosoftRedirectUri() {
+      // Always use the containing folder, so both /WhisperAzure/ and /Whisper-dev/
+      // match the registered SPA redirect URIs even if index.html is shown explicitly.
+      const pathname = window.location.pathname;
+      const folderPath = pathname.endsWith("/")
+        ? pathname
+        : pathname.slice(0, pathname.lastIndexOf("/") + 1);
+      return window.location.origin + folderPath;
+    }
+
+    async function requestMicrosoftAccessToken() {
+      // Open immediately while this call still has a trusted click gesture.
+      const popup = window.open("", "whisperMicrosoftSignIn", "popup=yes,width=520,height=720");
+      if (!popup) throw new Error("Microsoft sign-in was blocked. Allow pop-ups and try again.");
+
+      try {
+        popup.document.title = "Microsoft sign-in";
+        popup.document.body.textContent = "Opening Microsoft sign-in…";
+      } catch {}
+
+      try {
+        const verifier = bytesToBase64Url(randomBytes(64));
+        const challengeBytes = new Uint8Array(
+          await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier))
+        );
+        const challenge = bytesToBase64Url(challengeBytes);
+        const state = `whisper-ms-${bytesToBase64Url(randomBytes(24))}`;
+        const redirectUri = getMicrosoftRedirectUri();
+        const authUrl = new URL(`${MICROSOFT_AUTHORITY}/authorize`);
+        authUrl.search = new URLSearchParams({
+          client_id: MICROSOFT_CLIENT_ID,
+          response_type: "code",
+          redirect_uri: redirectUri,
+          response_mode: "query",
+          scope: MICROSOFT_SCOPES.join(" "),
+          state,
+          code_challenge: challenge,
+          code_challenge_method: "S256",
+          prompt: "select_account"
+        }).toString();
+
+        return await new Promise((resolve, reject) => {
+          let settled = false;
+          let callbackReceived = false;
+          let popupClosedAt = 0;
+          let oauthChannel = null;
+          const timeoutId = window.setTimeout(() => finish(new Error("Microsoft sign-in timed out.")), 120000);
+          const closedPollId = window.setInterval(() => {
+            if (!popup.closed) {
+              popupClosedAt = 0;
+              return;
+            }
+            if (!popupClosedAt) {
+              popupClosedAt = Date.now();
+              return;
+            }
+            // A successful callback closes the popup before its queued message
+            // is always delivered. Allow a short grace period for that message.
+            if (Date.now() - popupClosedAt >= 2000) {
+              finish(new Error("Microsoft sign-in was closed before completion."));
+            }
+          }, 500);
+
+          function cleanup() {
+            window.clearTimeout(timeoutId);
+            window.clearInterval(closedPollId);
+            window.removeEventListener("message", onMessage);
+            try { oauthChannel?.removeEventListener("message", onBroadcastMessage); } catch {}
+            try { oauthChannel?.close(); } catch {}
+            oauthChannel = null;
+            try { if (!popup.closed) popup.close(); } catch {}
+          }
+
+          function finish(error, token) {
+            if (settled) return;
+            settled = true;
+            cleanup();
+            if (error) reject(error);
+            else resolve(token);
+          }
+
+          async function handleCallback(data) {
+            if (settled || callbackReceived ||
+                data.type !== "whisper-microsoft-oauth-callback" || data.state !== state) return;
+            callbackReceived = true;
+            window.clearInterval(closedPollId);
+            window.removeEventListener("message", onMessage);
+            try { oauthChannel?.removeEventListener("message", onBroadcastMessage); } catch {}
+            try { oauthChannel?.close(); } catch {}
+            oauthChannel = null;
+
+            if (data.error) {
+              finish(new Error(data.errorDescription || data.error));
+              return;
+            }
+
+            try {
+              const tokenResponse = await fetch(`${MICROSOFT_AUTHORITY}/token`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({
+                  client_id: MICROSOFT_CLIENT_ID,
+                  grant_type: "authorization_code",
+                  code: data.code,
+                  redirect_uri: redirectUri,
+                  code_verifier: verifier,
+                  scope: MICROSOFT_SCOPES.join(" ")
+                })
+              });
+              const tokenData = await tokenResponse.json();
+              if (!tokenResponse.ok || !tokenData.access_token) {
+                throw new Error(tokenData.error_description || "Microsoft did not return an access token.");
+              }
+              finish(null, tokenData.access_token);
+            } catch (error) {
+              finish(error);
+            }
+          }
+
+          function onMessage(event) {
+            if (event.origin !== window.location.origin) return;
+            handleCallback(event.data || {});
+          }
+
+          function onBroadcastMessage(event) {
+            handleCallback(event.data || {});
+          }
+
+          window.addEventListener("message", onMessage);
+          try {
+            if (typeof window.BroadcastChannel === "function") {
+              oauthChannel = new window.BroadcastChannel(`whisper-ms-oauth-${state}`);
+              oauthChannel.addEventListener("message", onBroadcastMessage);
+            }
+          } catch {
+            oauthChannel = null;
+          }
+          try {
+            popup.location.replace(authUrl.toString());
+          } catch (error) {
+            finish(error);
+          }
+        });
+      } catch (error) {
+        try { if (!popup.closed) popup.close(); } catch {}
+        throw error;
+      }
+    }
+
+    async function graphRequest(accessToken, path, options = {}) {
+      const headers = new Headers(options.headers || {});
+      headers.set("Authorization", `Bearer ${accessToken}`);
+      const response = await fetch(`https://graph.microsoft.com/v1.0${path}`, {
+        ...options,
+        headers,
+        cache: "no-store"
+      });
+      if (!response.ok) {
+        let message = `Microsoft Graph error (${response.status})`;
+        try {
+          const details = await response.clone().json();
+          message = details?.error?.message || message;
+        } catch {}
+        const error = new Error(message);
+        error.status = response.status;
+        throw error;
+      }
+      return response;
+    }
+
+    async function uploadEncryptedBackupToOneDrive(accessToken, encryptedBackup) {
+      // Accessing approot creates/locates this app's isolated folder in the signed-in user's OneDrive.
+      await graphRequest(accessToken, "/me/drive/special/approot");
+      await graphRequest(
+        accessToken,
+        `/me/drive/special/approot:/${ONEDRIVE_BACKUP_FILENAME}:/content`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(encryptedBackup)
+        }
+      );
+    }
+
+    async function downloadEncryptedBackupFromOneDrive(accessToken) {
+      try {
+        await graphRequest(accessToken, "/me/drive/special/approot");
+        const response = await graphRequest(
+          accessToken,
+          `/me/drive/special/approot:/${ONEDRIVE_BACKUP_FILENAME}:/content`
+        );
+        const raw = await response.text();
+        if (raw.length > 2000000) throw new Error("The OneDrive backup is unexpectedly large.");
+        return JSON.parse(raw);
+      } catch (error) {
+        if (error && error.status === 404) {
+          throw new Error("No OneDrive backup was found. Export keys to OneDrive first.");
+        }
+        if (error instanceof SyntaxError) throw new Error("The OneDrive backup is not valid JSON.");
+        throw error;
+      }
+    }
+
+    let googleIdentityServicesPromise = null;
+
+    function loadGoogleIdentityServices() {
+      if (window.google?.accounts?.oauth2) return Promise.resolve();
+      if (googleIdentityServicesPromise) return googleIdentityServicesPromise;
+
+      googleIdentityServicesPromise = new Promise((resolve, reject) => {
+        let script = document.querySelector(`script[src="${GOOGLE_IDENTITY_SCRIPT_URL}"]`);
+        const timeoutId = window.setTimeout(() => {
+          if (!window.google?.accounts?.oauth2) script?.remove();
+          reject(new Error("Google sign-in could not be loaded. Check your connection and try again."));
+        }, 15000);
+
+        const finish = () => {
+          window.clearTimeout(timeoutId);
+          if (window.google?.accounts?.oauth2) resolve();
+          else reject(new Error("Google sign-in is unavailable in this browser."));
+        };
+
+        const fail = () => {
+          window.clearTimeout(timeoutId);
+          script?.remove();
+          reject(new Error("Google sign-in could not be loaded. Check your connection and try again."));
+        };
+
+        if (!script) {
+          script = document.createElement("script");
+          script.src = GOOGLE_IDENTITY_SCRIPT_URL;
+          script.async = true;
+          script.defer = true;
+          script.addEventListener("load", finish, { once: true });
+          script.addEventListener("error", fail, { once: true });
+          document.head.appendChild(script);
+        } else {
+          script.addEventListener("load", finish, { once: true });
+          script.addEventListener("error", fail, { once: true });
+        }
+      }).catch((error) => {
+        googleIdentityServicesPromise = null;
+        throw error;
+      });
+
+      return googleIdentityServicesPromise;
+    }
+
+    async function prepareGoogleDriveButton(button) {
+      if (!button) return;
+      const readyLabel = button.dataset.readyLabel || button.textContent;
+      button.dataset.readyLabel = readyLabel;
+      button.disabled = true;
+      button.textContent = "Loading Google…";
+      try {
+        await loadGoogleIdentityServices();
+        button.disabled = false;
+        button.textContent = readyLabel;
+      } catch (error) {
+        button.textContent = readyLabel;
+        setKeysIoStatus(error?.message || "Google sign-in could not be loaded.", true);
+      }
+    }
+
+    function requestGoogleAccessToken() {
+      if (!window.google?.accounts?.oauth2) {
+        throw new Error("Google sign-in is still loading. Wait a moment and try again.");
+      }
+
+      return new Promise((resolve, reject) => {
+        let settled = false;
+        const timeoutId = window.setTimeout(() => finish(new Error("Google sign-in timed out.")), 120000);
+
+        function finish(error, token) {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeoutId);
+          if (error) reject(error);
+          else resolve(token);
+        }
+
+        try {
+          const tokenClient = window.google.accounts.oauth2.initTokenClient({
+            client_id: GOOGLE_CLIENT_ID,
+            scope: GOOGLE_DRIVE_SCOPE,
+            prompt: "select_account",
+            callback: (response) => {
+              if (response?.error) {
+                finish(new Error(response.error_description || response.error));
+                return;
+              }
+              if (!response?.access_token) {
+                finish(new Error("Google did not return an access token."));
+                return;
+              }
+              const hasScope = typeof window.google.accounts.oauth2.hasGrantedAllScopes !== "function" ||
+                window.google.accounts.oauth2.hasGrantedAllScopes(response, GOOGLE_DRIVE_SCOPE);
+              if (!hasScope) {
+                finish(new Error("Google Drive app-storage permission was not granted."));
+                return;
+              }
+              finish(null, response.access_token);
+            },
+            error_callback: (error) => {
+              const message = error?.type === "popup_failed_to_open"
+                ? "Google sign-in was blocked. Allow pop-ups and try again."
+                : error?.type === "popup_closed"
+                  ? "Google sign-in was closed before completion."
+                  : "Google sign-in failed. Please try again.";
+              finish(new Error(message));
+            }
+          });
+          tokenClient.requestAccessToken();
+        } catch (error) {
+          finish(error);
+        }
+      });
+    }
+
+    async function googleDriveRequest(accessToken, url, options = {}) {
+      const headers = new Headers(options.headers || {});
+      headers.set("Authorization", `Bearer ${accessToken}`);
+      const response = await fetch(url, {
+        ...options,
+        headers,
+        cache: "no-store"
+      });
+      if (!response.ok) {
+        let message = `Google Drive error (${response.status})`;
+        try {
+          const details = await response.clone().json();
+          message = details?.error?.message || message;
+        } catch {}
+        const error = new Error(message);
+        error.status = response.status;
+        throw error;
+      }
+      return response;
+    }
+
+    async function findGoogleDriveBackup(accessToken) {
+      const params = new URLSearchParams({
+        spaces: "appDataFolder",
+        q: `name = '${GOOGLE_DRIVE_BACKUP_FILENAME}' and trashed = false`,
+        fields: "files(id,name,modifiedTime)",
+        orderBy: "modifiedTime desc",
+        pageSize: "1"
+      });
+      const response = await googleDriveRequest(
+        accessToken,
+        `https://www.googleapis.com/drive/v3/files?${params.toString()}`
+      );
+      const data = await response.json();
+      return Array.isArray(data?.files) && data.files.length ? data.files[0] : null;
+    }
+
+    async function uploadEncryptedBackupToGoogleDrive(accessToken, encryptedBackup) {
+      const existing = await findGoogleDriveBackup(accessToken);
+      const content = JSON.stringify(encryptedBackup);
+
+      if (existing?.id) {
+        await googleDriveRequest(
+          accessToken,
+          `https://www.googleapis.com/upload/drive/v3/files/${encodeURIComponent(existing.id)}?uploadType=media`,
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: content
+          }
+        );
+        return;
+      }
+
+      const boundary = `whisper_backup_${bytesToBase64Url(randomBytes(18))}`;
+      const metadata = JSON.stringify({
+        name: GOOGLE_DRIVE_BACKUP_FILENAME,
+        parents: ["appDataFolder"],
+        mimeType: "application/json"
+      });
+      const multipartBody = [
+        `--${boundary}`,
+        "Content-Type: application/json; charset=UTF-8",
+        "",
+        metadata,
+        `--${boundary}`,
+        "Content-Type: application/json",
+        "",
+        content,
+        `--${boundary}--`,
+        ""
+      ].join("\r\n");
+
+      await googleDriveRequest(
+        accessToken,
+        "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id",
+        {
+          method: "POST",
+          headers: { "Content-Type": `multipart/related; boundary=${boundary}` },
+          body: multipartBody
+        }
+      );
+    }
+
+    async function downloadEncryptedBackupFromGoogleDrive(accessToken) {
+      const backup = await findGoogleDriveBackup(accessToken);
+      if (!backup?.id) {
+        throw new Error("No Google Drive backup was found. Export keys to Google Drive first.");
+      }
+
+      const response = await googleDriveRequest(
+        accessToken,
+        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(backup.id)}?alt=media`
+      );
+      const raw = await response.text();
+      if (raw.length > 2000000) throw new Error("The Google Drive backup is unexpectedly large.");
+      try {
+        return JSON.parse(raw);
+      } catch {
+        throw new Error("The Google Drive backup is not valid JSON.");
+      }
+    }
+
+    const exportModal = {
+      backdrop: document.getElementById("exportKeysModalBackdrop"),
+      card: document.getElementById("exportKeysModal"),
+      close: document.getElementById("exportKeysModalX"),
+      choice: document.getElementById("exportKeysModalChoice"),
+      oneDrive: document.getElementById("exportKeysModalOneDrive"),
+      googleDrive: document.getElementById("exportKeysModalGoogleDrive"),
+      json: document.getElementById("exportChoiceJson"),
+      oneDriveChoice: document.getElementById("exportChoiceOneDrive"),
+      googleDriveChoice: document.getElementById("exportChoiceGoogleDrive"),
+      oneDrivePassword: document.getElementById("exportOneDrivePassword"),
+      oneDrivePasswordConfirm: document.getElementById("exportOneDrivePasswordConfirm"),
+      oneDriveSave: document.getElementById("exportOneDriveSaveBtn"),
+      oneDriveBack: document.getElementById("exportOneDriveBackBtn"),
+      googleDrivePassword: document.getElementById("exportGoogleDrivePassword"),
+      googleDrivePasswordConfirm: document.getElementById("exportGoogleDrivePasswordConfirm"),
+      googleDriveSave: document.getElementById("exportGoogleDriveSaveBtn"),
+      googleDriveBack: document.getElementById("exportGoogleDriveBackBtn")
+    };
+
+    const importModal = {
+      backdrop: document.getElementById("importKeysModalBackdrop"),
+      card: document.getElementById("importKeysModal"),
+      close: document.getElementById("importKeysModalX"),
+      choice: document.getElementById("importKeysModalChoice"),
+      jsonChoice: document.getElementById("importKeysModalJsonChoice"),
+      paste: document.getElementById("importKeysModalPaste"),
+      oneDrive: document.getElementById("importKeysModalOneDrive"),
+      googleDrive: document.getElementById("importKeysModalGoogleDrive"),
+      json: document.getElementById("importChoiceJson"),
+      oneDriveChoice: document.getElementById("importChoiceOneDrive"),
+      googleDriveChoice: document.getElementById("importChoiceGoogleDrive"),
+      file: document.getElementById("importChoiceFile"),
+      pasteChoice: document.getElementById("importChoicePaste"),
+      jsonBack: document.getElementById("importJsonBackBtn"),
+      pasteBack: document.getElementById("importPasteBackBtn"),
+      jsonText: document.getElementById("importKeysJsonText"),
+      jsonFetch: document.getElementById("importKeysFetchBtn"),
+      oneDrivePassword: document.getElementById("importOneDrivePassword"),
+      oneDriveFetch: document.getElementById("importOneDriveFetchBtn"),
+      oneDriveBack: document.getElementById("importOneDriveBackBtn"),
+      googleDrivePassword: document.getElementById("importGoogleDrivePassword"),
+      googleDriveFetch: document.getElementById("importGoogleDriveFetchBtn"),
+      googleDriveBack: document.getElementById("importGoogleDriveBackBtn")
+    };
+
+    const cloudRestoreModal = {
+      backdrop: document.getElementById("cloudRestoreModalBackdrop"),
+      card: document.getElementById("cloudRestoreModal"),
+      title: document.getElementById("cloudRestoreModalTitle"),
+      close: document.getElementById("cloudRestoreModalX"),
+      notice: document.getElementById("cloudRestoreModalNotice"),
+      promptsOption: document.getElementById("cloudRestorePromptsOption"),
+      prompts: document.getElementById("cloudRestorePrompts"),
+      promptsLabel: document.getElementById("cloudRestorePromptsLabel"),
+      workspaceOption: document.getElementById("cloudRestoreWorkspaceOption"),
+      workspace: document.getElementById("cloudRestoreWorkspace"),
+      workspaceLabel: document.getElementById("cloudRestoreWorkspaceLabel"),
+      continue: document.getElementById("cloudRestoreContinue"),
+      skip: document.getElementById("cloudRestoreSkip"),
+      status: document.getElementById("cloudRestoreModalStatus"),
+    };
+
+    function getCloudRestoreText() {
+      let language = "en";
+      try { language = localStorage.getItem("siteLanguage") || "en"; } catch {}
+      return CLOUD_RESTORE_TEXT[language] || CLOUD_RESTORE_TEXT.en;
+    }
+
+    function formatCloudText(template, values = {}) {
+      return String(template || "").replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? ""));
+    }
+
+    function cloudProviderName(provider) {
+      return provider === "oneDrive" ? "Microsoft OneDrive" : "Google Drive";
+    }
+
+    function setCloudRestoreStatus(message, isError = false) {
+      if (!cloudRestoreModal.status) return;
+      cloudRestoreModal.status.textContent = String(message || "");
+      cloudRestoreModal.status.style.color = isError ? "#b00020" : "#2e7d32";
+    }
+
+    function closeCloudRestoreModal() {
+      cloudRestoreModal.backdrop?.classList.remove("active");
+      cloudRestoreModal.backdrop?.setAttribute("aria-hidden", "true");
+      setCloudRestoreStatus("");
+    }
+
+    function chooseCloudRestoreItems(availability, provider) {
+      const text = getCloudRestoreText();
+      const providerName = cloudProviderName(provider);
+      if (cloudRestoreModal.title) cloudRestoreModal.title.textContent = text.title;
+      if (cloudRestoreModal.promptsLabel) cloudRestoreModal.promptsLabel.textContent = text.promptLabel;
+      if (cloudRestoreModal.workspaceLabel) cloudRestoreModal.workspaceLabel.textContent = text.workspaceLabel;
+      if (cloudRestoreModal.continue) cloudRestoreModal.continue.textContent = text.load;
+      if (cloudRestoreModal.skip) cloudRestoreModal.skip.textContent = text.local;
+      if (cloudRestoreModal.promptsOption) cloudRestoreModal.promptsOption.hidden = !availability.prompts;
+      if (cloudRestoreModal.workspaceOption) cloudRestoreModal.workspaceOption.hidden = !availability.workspaceSet;
+      if (cloudRestoreModal.prompts) cloudRestoreModal.prompts.checked = Boolean(availability.prompts);
+      if (cloudRestoreModal.workspace) cloudRestoreModal.workspace.checked = Boolean(availability.workspaceSet);
+      if (cloudRestoreModal.notice) {
+        const template = availability.prompts && availability.workspaceSet
+          ? text.both
+          : availability.prompts ? text.prompts : text.workspace;
+        cloudRestoreModal.notice.textContent = formatCloudText(template, { provider: providerName });
+      }
+      setCloudRestoreStatus("");
+      cloudRestoreModal.backdrop?.classList.add("active");
+      cloudRestoreModal.backdrop?.setAttribute("aria-hidden", "false");
+
+      return new Promise((resolve) => {
+        let settled = false;
+        const finish = (selection) => {
+          if (settled) return;
+          settled = true;
+          resolve(selection);
+        };
+        cloudRestoreModal.continue.onclick = () => finish({
+          prompts: Boolean(availability.prompts && cloudRestoreModal.prompts?.checked),
+          workspaceSet: Boolean(availability.workspaceSet && cloudRestoreModal.workspace?.checked),
+        });
+        const useLocal = () => {
+          closeCloudRestoreModal();
+          finish({ prompts: false, workspaceSet: false });
+        };
+        cloudRestoreModal.skip.onclick = useLocal;
+        cloudRestoreModal.close.onclick = useLocal;
+      });
+    }
+
+    async function loadCloudBackupWithLegacyFallback(kind, provider, accessToken, masterPassword) {
+      const text = getCloudRestoreText();
+      const item = kind === "prompts" ? text.promptLabel : text.workspaceLabel;
+      const load = (password) => kind === "prompts"
+        ? PromptCloudBackup.loadPackageWithAccessToken(provider, accessToken, password)
+        : PromptCloudBackup.loadWorkspaceSetWithAccessToken(provider, accessToken, password);
+      const save = (bundle) => kind === "prompts"
+        ? PromptCloudBackup.savePackageWithAccessToken(provider, accessToken, bundle, masterPassword)
+        : PromptCloudBackup.saveWorkspaceSetWithAccessToken(provider, accessToken, bundle, masterPassword);
+
+      try {
+        return await load(masterPassword);
+      } catch (error) {
+        if (!/incorrect password|damaged/i.test(String(error?.message || ""))) throw error;
+        const legacyPassword = window.prompt(formatCloudText(text.legacyPrompt, { item }));
+        if (legacyPassword == null) throw new Error(`${item} restore was cancelled.`);
+        const bundle = await load(String(legacyPassword));
+        if (window.confirm(formatCloudText(text.migrate, { item }))) {
+          await save(bundle);
+        }
+        return bundle;
+      }
+    }
+
+    function commitEnterState() {
+      const values = {
+        openai_api_key: String(apiKeyInput?.value || "").trim(),
+        soniox_api_key: String(sonioxKeyInput?.value || "").trim(),
+        mistral_api_key: String(mistralKeyInput?.value || "").trim(),
+        requesty_api_key: String(requestyKeyInput?.value || "").trim(),
+        bedrock_backend_url: String(bedrockBackendUrlInput?.value || "").trim(),
+        bedrock_backend_secret: String(bedrockBackendSecretInput?.value || "").trim(),
+      };
+      Object.entries(values).forEach(([key, value]) => sessionStorage.setItem(key, value));
+      sessionStorage.setItem("user_api_key", values.openai_api_key);
+      setCookie("user_consent", "accepted", 365);
+      try {
+        // Preserve an existing legacy namespace. New browsers use one hidden
+        // default namespace, initialized only after the entered key is stored
+        // so older API-key-based prompts can be migrated safely.
+        if (typeof PromptManager?.ensurePromptProfileId === "function") {
+          PromptManager.ensurePromptProfileId();
+        } else if (!String(localStorage.getItem("prompt_profile_id") || "").trim()) {
+          localStorage.setItem("prompt_profile_id", "default");
+        }
+      } catch {}
+    }
+
+    function enterTranscriptionTool() {
+      window.location.href = "transcribe.html";
+    }
+
+    async function handleEnterTranscription() {
+      if (enterTranscriptionBtn?.disabled) return;
+      commitEnterState();
+      CloudBackupSession.clearPendingRestore();
+
+      const provider = CloudBackupSession.getKeysImportedProvider();
+      const password = CloudBackupSession.getPassword(provider);
+      if (!provider || !password) {
+        enterTranscriptionTool();
+        return;
+      }
+
+      const originalLabel = enterTranscriptionBtn.textContent;
+      enterTranscriptionBtn.disabled = true;
+      enterTranscriptionBtn.textContent = getCloudRestoreText().checking;
+      try {
+        const accessToken = activeCloudAccessTokens.get(provider) ||
+          await PromptCloudBackup.connect(provider, (statusKey) => {
+            const text = getCloudRestoreText();
+            setKeysIoStatus(text[statusKey] || text.checking, false);
+          });
+        activeCloudAccessTokens.set(provider, accessToken);
+        const availability = await PromptCloudBackup.inspectAvailableBackups(provider, accessToken);
+        if (!availability.prompts && !availability.workspaceSet) {
+          enterTranscriptionTool();
+          return;
+        }
+
+        const selection = await chooseCloudRestoreItems(availability, provider);
+        if (!selection.prompts && !selection.workspaceSet) {
+          enterTranscriptionTool();
+          return;
+        }
+
+        setCloudRestoreStatus(getCloudRestoreText().loading, false);
+        cloudRestoreModal.continue.disabled = true;
+        cloudRestoreModal.skip.disabled = true;
+        const promptPackage = selection.prompts
+          ? await loadCloudBackupWithLegacyFallback("prompts", provider, accessToken, password)
+          : null;
+        const workspaceSet = selection.workspaceSet
+          ? await loadCloudBackupWithLegacyFallback("workspaceSet", provider, accessToken, password)
+          : null;
+        CloudBackupSession.stageRestore({ promptPackage, workspaceSet });
+        closeCloudRestoreModal();
+        enterTranscriptionTool();
+      } catch (error) {
+        CloudBackupSession.clearPendingRestore();
+        const message = formatCloudText(getCloudRestoreText().failed, {
+          error: error?.message || "Unknown error",
+        });
+        closeCloudRestoreModal();
+        window.alert(message);
+        enterTranscriptionTool();
+      } finally {
+        if (cloudRestoreModal.continue) cloudRestoreModal.continue.disabled = false;
+        if (cloudRestoreModal.skip) cloudRestoreModal.skip.disabled = false;
+        enterTranscriptionBtn.disabled = false;
+        enterTranscriptionBtn.textContent = originalLabel;
+      }
+    }
+
+    if (enterTranscriptionBtn && !enterTranscriptionBtn._multiKeyWired) {
+      enterTranscriptionBtn._multiKeyWired = true;
+      enterTranscriptionBtn.addEventListener("click", handleEnterTranscription);
+    }
+
+    function showExportChoice() {
+      if (exportModal.choice) exportModal.choice.style.display = "";
+      if (exportModal.oneDrive) exportModal.oneDrive.style.display = "none";
+      if (exportModal.googleDrive) exportModal.googleDrive.style.display = "none";
+      if (exportModal.oneDrivePassword) exportModal.oneDrivePassword.value = "";
+      if (exportModal.oneDrivePasswordConfirm) exportModal.oneDrivePasswordConfirm.value = "";
+      if (exportModal.googleDrivePassword) exportModal.googleDrivePassword.value = "";
+      if (exportModal.googleDrivePasswordConfirm) exportModal.googleDrivePasswordConfirm.value = "";
+    }
+
+    function openExportModal() {
+      if (!exportModal.backdrop) return;
+      showExportChoice();
+      clearCloudModalStatuses();
+      exportModal.backdrop.classList.add("active");
+      exportModal.backdrop.setAttribute("aria-hidden", "false");
+      exportModal.json?.focus();
+    }
+
+    function closeExportModal() {
+      if (!exportModal.backdrop) return;
+      showExportChoice();
+      exportModal.backdrop.classList.remove("active");
+      exportModal.backdrop.setAttribute("aria-hidden", "true");
+    }
+
+    function showExportOneDrive() {
+      if (exportModal.choice) exportModal.choice.style.display = "none";
+      if (exportModal.oneDrive) exportModal.oneDrive.style.display = "";
+      if (exportModal.googleDrive) exportModal.googleDrive.style.display = "none";
+      configureKeyCloudPasswordStep("oneDrive", "export");
+    }
+
+    function showExportGoogleDrive() {
+      if (exportModal.choice) exportModal.choice.style.display = "none";
+      if (exportModal.oneDrive) exportModal.oneDrive.style.display = "none";
+      if (exportModal.googleDrive) exportModal.googleDrive.style.display = "";
+      configureKeyCloudPasswordStep("googleDrive", "export");
+      prepareGoogleDriveButton(exportModal.googleDriveSave).then(() => {
+        if (CloudBackupSession.getPassword("googleDrive")) exportModal.googleDriveSave?.focus();
+        else exportModal.googleDrivePassword?.focus();
+      });
+    }
+
+    function showImportChoice() {
+      if (importModal.choice) importModal.choice.style.display = "";
+      if (importModal.jsonChoice) importModal.jsonChoice.style.display = "none";
+      if (importModal.paste) importModal.paste.style.display = "none";
+      if (importModal.oneDrive) importModal.oneDrive.style.display = "none";
+      if (importModal.googleDrive) importModal.googleDrive.style.display = "none";
+      if (importModal.jsonText) importModal.jsonText.value = "";
+      if (importModal.oneDrivePassword) importModal.oneDrivePassword.value = "";
+      if (importModal.googleDrivePassword) importModal.googleDrivePassword.value = "";
+    }
+
+    function openImportModal() {
+      if (!importModal.backdrop) return;
+      showImportChoice();
+      clearCloudModalStatuses();
+      importModal.backdrop.classList.add("active");
+      importModal.backdrop.setAttribute("aria-hidden", "false");
+      importModal.json?.focus();
+    }
+
+    function closeImportModal() {
+      if (!importModal.backdrop) return;
+      showImportChoice();
+      importModal.backdrop.classList.remove("active");
+      importModal.backdrop.setAttribute("aria-hidden", "true");
+    }
+
+    function showImportJsonChoice() {
+      if (importModal.choice) importModal.choice.style.display = "none";
+      if (importModal.jsonChoice) importModal.jsonChoice.style.display = "";
+      importModal.file?.focus();
+    }
+
+    function showImportPaste() {
+      if (importModal.jsonChoice) importModal.jsonChoice.style.display = "none";
+      if (importModal.paste) importModal.paste.style.display = "";
+      importModal.jsonText?.focus();
+    }
+
+    function showImportOneDrive() {
+      if (importModal.choice) importModal.choice.style.display = "none";
+      if (importModal.oneDrive) importModal.oneDrive.style.display = "";
+      if (importModal.googleDrive) importModal.googleDrive.style.display = "none";
+      if (importModal.oneDrive) importModal.oneDrive.dataset.legacyPasswordMode = "false";
+      configureKeyCloudPasswordStep("oneDrive", "import");
+    }
+
+    function showImportGoogleDrive() {
+      if (importModal.choice) importModal.choice.style.display = "none";
+      if (importModal.oneDrive) importModal.oneDrive.style.display = "none";
+      if (importModal.googleDrive) importModal.googleDrive.style.display = "";
+      if (importModal.googleDrive) importModal.googleDrive.dataset.legacyPasswordMode = "false";
+      configureKeyCloudPasswordStep("googleDrive", "import");
+      prepareGoogleDriveButton(importModal.googleDriveFetch).then(() => {
+        if (CloudBackupSession.getPassword("googleDrive")) importModal.googleDriveFetch?.focus();
+        else importModal.googleDrivePassword?.focus();
+      });
+    }
+
+    function configureKeyCloudPasswordStep(provider, mode) {
+      const isOneDrive = provider === "oneDrive";
+      const pane = mode === "export"
+        ? (isOneDrive ? exportModal.oneDrive : exportModal.googleDrive)
+        : (isOneDrive ? importModal.oneDrive : importModal.googleDrive);
+      const password = mode === "export"
+        ? (isOneDrive ? exportModal.oneDrivePassword : exportModal.googleDrivePassword)
+        : (isOneDrive ? importModal.oneDrivePassword : importModal.googleDrivePassword);
+      const confirmation = mode === "export"
+        ? (isOneDrive ? exportModal.oneDrivePasswordConfirm : exportModal.googleDrivePasswordConfirm)
+        : null;
+      const unlocked = CloudBackupSession.getPassword(provider);
+      const legacyMode = pane?.dataset.legacyPasswordMode === "true";
+      const useUnlocked = Boolean(unlocked) && !legacyMode;
+      const labels = pane ? Array.from(pane.querySelectorAll(".mini-modal__field-label")) : [];
+      labels.forEach((label) => { label.style.display = useUnlocked ? "none" : ""; });
+      if (password) password.style.display = useUnlocked ? "none" : "";
+      if (confirmation) confirmation.style.display = useUnlocked ? "none" : "";
+      const notice = pane?.querySelector(".mini-modal__notice");
+      if (notice) {
+        notice.textContent = legacyMode
+          ? "This older key backup uses a different password. Enter its previous password to import it."
+          : useUnlocked
+            ? `Your unlocked Cloud Backup Password for ${cloudProviderName(provider)} will be used.`
+            : mode === "export"
+              ? "Create a Cloud Backup Password for this provider. It will also be used for prompt lists and Workspace Sets, kept only in this tab session and never uploaded."
+              : "Enter the Cloud Backup Password for this provider. It is kept only in this tab session and never uploaded.";
+      }
+      if (useUnlocked) {
+        const action = mode === "export"
+          ? (isOneDrive ? exportModal.oneDriveSave : exportModal.googleDriveSave)
+          : (isOneDrive ? importModal.oneDriveFetch : importModal.googleDriveFetch);
+        action?.focus();
+      } else {
+        password?.focus();
+      }
+    }
+
+    exportKeysBtn?.addEventListener("click", openExportModal);
+    importKeysBtn?.addEventListener("click", openImportModal);
+    clearKeysBtn?.addEventListener("click", clearAllKeyFields);
+
+    exportModal.close?.addEventListener("click", closeExportModal);
+    exportModal.oneDriveBack?.addEventListener("click", showExportChoice);
+    exportModal.googleDriveBack?.addEventListener("click", showExportChoice);
+    exportModal.oneDriveChoice?.addEventListener("click", showExportOneDrive);
+    exportModal.googleDriveChoice?.addEventListener("click", showExportGoogleDrive);
+    exportModal.backdrop?.addEventListener("click", (event) => {
+      if (event.target === exportModal.backdrop) closeExportModal();
+    });
+
+    exportModal.json?.addEventListener("click", async () => {
+      closeExportModal();
+      try {
+        await exportKeysToJsonFile();
+      } catch (error) {
+        if (error && error.name === "AbortError") return;
+        setKeysIoStatus("Export failed: " + (error?.message || "Unknown error"), true);
+      }
+    });
+
+    exportModal.oneDriveSave?.addEventListener("click", async () => {
+      const unlockedPassword = CloudBackupSession.getPassword("oneDrive");
+      const password = unlockedPassword || exportModal.oneDrivePassword?.value || "";
+      const confirmation = unlockedPassword || exportModal.oneDrivePasswordConfirm?.value || "";
+      if (!unlockedPassword && password.length < 10) {
+        setKeysIoStatus("Use an encryption password with at least 10 characters.", true);
+        exportModal.oneDrivePassword?.focus();
+        return;
+      }
+      if (!unlockedPassword && password !== confirmation) {
+        setKeysIoStatus("The two encryption passwords do not match.", true);
+        exportModal.oneDrivePasswordConfirm?.focus();
+        return;
+      }
+      if (!window.confirm("Save this encrypted backup to Microsoft OneDrive? Any previous OneDrive backup will be replaced.")) return;
+
+      const idleLabel = exportModal.oneDriveSave.textContent;
+      exportModal.oneDriveSave.disabled = true;
+      exportModal.oneDriveSave.textContent = "Saving…";
+      setKeysIoStatus("Waiting for Microsoft sign-in…", false);
+      try {
+        const accessToken = await requestMicrosoftAccessToken();
+        setKeysIoStatus("Encrypting and saving the backup…", false);
+        const encrypted = await encryptKeyBundleForOneDrive(buildKeyBundle(), password);
+        await uploadEncryptedBackupToOneDrive(accessToken, encrypted);
+        CloudBackupSession.unlock("oneDrive", password);
+        activeCloudAccessTokens.set("oneDrive", accessToken);
+        closeExportModal();
+        setKeysIoStatus("Encrypted OneDrive backup saved. Any previous backup was replaced.", false);
+      } catch (error) {
+        setKeysIoStatus("OneDrive export failed: " + (error?.message || "Unknown error"), true);
+      } finally {
+        if (exportModal.oneDrivePassword) exportModal.oneDrivePassword.value = "";
+        if (exportModal.oneDrivePasswordConfirm) exportModal.oneDrivePasswordConfirm.value = "";
+        exportModal.oneDriveSave.disabled = false;
+        exportModal.oneDriveSave.textContent = idleLabel;
+      }
+    });
+
+    exportModal.googleDriveSave?.addEventListener("click", async () => {
+      const unlockedPassword = CloudBackupSession.getPassword("googleDrive");
+      const password = unlockedPassword || exportModal.googleDrivePassword?.value || "";
+      const confirmation = unlockedPassword || exportModal.googleDrivePasswordConfirm?.value || "";
+      if (!unlockedPassword && password.length < 10) {
+        setKeysIoStatus("Use an encryption password with at least 10 characters.", true);
+        exportModal.googleDrivePassword?.focus();
+        return;
+      }
+      if (!unlockedPassword && password !== confirmation) {
+        setKeysIoStatus("The two encryption passwords do not match.", true);
+        exportModal.googleDrivePasswordConfirm?.focus();
+        return;
+      }
+      if (!window.confirm("Save this encrypted backup to Google Drive? Any previous Google Drive backup will be replaced.")) return;
+
+      const idleLabel = exportModal.googleDriveSave.dataset.readyLabel || exportModal.googleDriveSave.textContent;
+      exportModal.googleDriveSave.disabled = true;
+      exportModal.googleDriveSave.textContent = "Saving…";
+      setKeysIoStatus("Waiting for Google sign-in…", false);
+      try {
+        const accessToken = await requestGoogleAccessToken();
+        setKeysIoStatus("Encrypting and saving the backup…", false);
+        const encrypted = await encryptKeyBundleForGoogleDrive(buildKeyBundle(), password);
+        await uploadEncryptedBackupToGoogleDrive(accessToken, encrypted);
+        CloudBackupSession.unlock("googleDrive", password);
+        activeCloudAccessTokens.set("googleDrive", accessToken);
+        closeExportModal();
+        setKeysIoStatus("Encrypted Google Drive backup saved. Any previous backup was replaced.", false);
+      } catch (error) {
+        setKeysIoStatus("Google Drive export failed: " + (error?.message || "Unknown error"), true);
+      } finally {
+        if (exportModal.googleDrivePassword) exportModal.googleDrivePassword.value = "";
+        if (exportModal.googleDrivePasswordConfirm) exportModal.googleDrivePasswordConfirm.value = "";
+        exportModal.googleDriveSave.disabled = false;
+        exportModal.googleDriveSave.textContent = idleLabel;
+      }
+    });
+
+    importModal.close?.addEventListener("click", closeImportModal);
+    importModal.json?.addEventListener("click", showImportJsonChoice);
+    importModal.oneDriveChoice?.addEventListener("click", showImportOneDrive);
+    importModal.googleDriveChoice?.addEventListener("click", showImportGoogleDrive);
+    importModal.jsonBack?.addEventListener("click", showImportChoice);
+    importModal.pasteBack?.addEventListener("click", showImportJsonChoice);
+    importModal.oneDriveBack?.addEventListener("click", showImportChoice);
+    importModal.googleDriveBack?.addEventListener("click", showImportChoice);
+    importModal.backdrop?.addEventListener("click", (event) => {
+      if (event.target === importModal.backdrop) closeImportModal();
+    });
+
+    importModal.file?.addEventListener("click", () => {
+      closeImportModal();
+      importKeysFile.value = "";
+      importKeysFile.click();
+    });
+    importModal.pasteChoice?.addEventListener("click", showImportPaste);
+
+    importModal.jsonFetch?.addEventListener("click", () => {
+      try {
+        const raw = String(importModal.jsonText?.value || "").trim();
+        if (!raw) {
+          setKeysIoStatus("Paste JSON content first.", true);
+          return;
+        }
+        applyKeyBundle(JSON.parse(raw));
+        CloudBackupSession.clearKeysImportedProvider();
+        closeImportModal();
+        setKeysIoStatus("Imported keys. Review the fields, then click Enter.", false);
+      } catch {
+        setKeysIoStatus("Import failed: invalid JSON content.", true);
+      }
+    });
+
+    importModal.oneDriveFetch?.addEventListener("click", async () => {
+      const unlockedPassword = CloudBackupSession.getPassword("oneDrive");
+      const legacyMode = importModal.oneDrive?.dataset.legacyPasswordMode === "true";
+      const usingUnlockedPassword = Boolean(unlockedPassword) && !legacyMode;
+      const password = usingUnlockedPassword ? unlockedPassword : importModal.oneDrivePassword?.value || "";
+      if (!password) {
+        setKeysIoStatus("Enter the encryption password for your OneDrive backup.", true);
+        importModal.oneDrivePassword?.focus();
+        return;
+      }
+
+      const idleLabel = importModal.oneDriveFetch.textContent;
+      importModal.oneDriveFetch.disabled = true;
+      importModal.oneDriveFetch.textContent = "Importing…";
+      setKeysIoStatus("Waiting for Microsoft sign-in…", false);
+      try {
+        const accessToken = await requestMicrosoftAccessToken();
+        setKeysIoStatus("Downloading and decrypting the backup…", false);
+        const encrypted = await downloadEncryptedBackupFromOneDrive(accessToken);
+        const bundle = await decryptKeyBundleFromOneDrive(encrypted, password);
+        applyKeyBundle(bundle);
+        if (!unlockedPassword) {
+          CloudBackupSession.unlock("oneDrive", password);
+        } else if (legacyMode && window.confirm("Update this older key backup to use your current Cloud Backup Password?")) {
+          const migrated = await encryptKeyBundleForOneDrive(bundle, unlockedPassword);
+          await uploadEncryptedBackupToOneDrive(accessToken, migrated);
+        }
+        CloudBackupSession.markKeysImportedFrom("oneDrive");
+        activeCloudAccessTokens.set("oneDrive", accessToken);
+        closeImportModal();
+        setKeysIoStatus("Imported keys from your OneDrive. Review the fields, then click Enter.", false);
+      } catch (error) {
+        if (usingUnlockedPassword && /incorrect password|damaged/i.test(String(error?.message || ""))) {
+          if (importModal.oneDrive) importModal.oneDrive.dataset.legacyPasswordMode = "true";
+          configureKeyCloudPasswordStep("oneDrive", "import");
+          setKeysIoStatus("This older key backup uses a different password. Enter its previous password.", true);
+          return;
+        }
+        setKeysIoStatus("OneDrive import failed: " + (error?.message || "Unknown error"), true);
+      } finally {
+        if (importModal.oneDrivePassword) importModal.oneDrivePassword.value = "";
+        importModal.oneDriveFetch.disabled = false;
+        importModal.oneDriveFetch.textContent = idleLabel;
+      }
+    });
+
+    importModal.googleDriveFetch?.addEventListener("click", async () => {
+      const unlockedPassword = CloudBackupSession.getPassword("googleDrive");
+      const legacyMode = importModal.googleDrive?.dataset.legacyPasswordMode === "true";
+      const usingUnlockedPassword = Boolean(unlockedPassword) && !legacyMode;
+      const password = usingUnlockedPassword ? unlockedPassword : importModal.googleDrivePassword?.value || "";
+      if (!password) {
+        setKeysIoStatus("Enter the encryption password for your Google Drive backup.", true);
+        importModal.googleDrivePassword?.focus();
+        return;
+      }
+
+      const idleLabel = importModal.googleDriveFetch.dataset.readyLabel || importModal.googleDriveFetch.textContent;
+      importModal.googleDriveFetch.disabled = true;
+      importModal.googleDriveFetch.textContent = "Importing…";
+      setKeysIoStatus("Waiting for Google sign-in…", false);
+      try {
+        const accessToken = await requestGoogleAccessToken();
+        setKeysIoStatus("Downloading and decrypting the backup…", false);
+        const encrypted = await downloadEncryptedBackupFromGoogleDrive(accessToken);
+        const bundle = await decryptKeyBundleFromGoogleDrive(encrypted, password);
+        applyKeyBundle(bundle);
+        if (!unlockedPassword) {
+          CloudBackupSession.unlock("googleDrive", password);
+        } else if (legacyMode && window.confirm("Update this older key backup to use your current Cloud Backup Password?")) {
+          const migrated = await encryptKeyBundleForGoogleDrive(bundle, unlockedPassword);
+          await uploadEncryptedBackupToGoogleDrive(accessToken, migrated);
+        }
+        CloudBackupSession.markKeysImportedFrom("googleDrive");
+        activeCloudAccessTokens.set("googleDrive", accessToken);
+        closeImportModal();
+        setKeysIoStatus("Imported keys from Google Drive. Review the fields, then click Enter.", false);
+      } catch (error) {
+        if (usingUnlockedPassword && /incorrect password|damaged/i.test(String(error?.message || ""))) {
+          if (importModal.googleDrive) importModal.googleDrive.dataset.legacyPasswordMode = "true";
+          configureKeyCloudPasswordStep("googleDrive", "import");
+          setKeysIoStatus("This older key backup uses a different password. Enter its previous password.", true);
+          return;
+        }
+        setKeysIoStatus("Google Drive import failed: " + (error?.message || "Unknown error"), true);
+      } finally {
+        if (importModal.googleDrivePassword) importModal.googleDrivePassword.value = "";
+        importModal.googleDriveFetch.disabled = false;
+        importModal.googleDriveFetch.textContent = idleLabel;
+      }
+    });
+
+    importKeysFile?.addEventListener("change", function () {
+      const file = importKeysFile.files && importKeysFile.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onerror = () => setKeysIoStatus("Import failed: could not read file.", true);
+      reader.onload = () => {
+        try {
+          applyKeyBundle(JSON.parse(String(reader.result || "")));
+          CloudBackupSession.clearKeysImportedProvider();
+          setKeysIoStatus("Imported keys. Review the fields, then click Enter.", false);
+        } catch {
+          setKeysIoStatus("Import failed: invalid JSON file.", true);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    [exportModal.card, importModal.card].forEach((card) => {
+      card?.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          if (card === exportModal.card) closeExportModal();
+          else closeImportModal();
+        } else if (event.key === "Enter" && event.target?.tagName !== "TEXTAREA") {
+          if (card === exportModal.card && exportModal.oneDrive?.style.display !== "none") {
+            exportModal.oneDriveSave?.click();
+          } else if (card === exportModal.card && exportModal.googleDrive?.style.display !== "none") {
+            exportModal.googleDriveSave?.click();
+          } else if (card === importModal.card && importModal.oneDrive?.style.display !== "none") {
+            importModal.oneDriveFetch?.click();
+          } else if (card === importModal.card && importModal.googleDrive?.style.display !== "none") {
+            importModal.googleDriveFetch?.click();
+          }
+        }
+        // Prevent the page-wide Enter shortcut from navigating away while a modal is active.
+        event.stopPropagation();
+      });
+    });
+  });
+</script>
+
+  <!-- AWS Bedrock Guide Modal -->
+  <div id="bedrockGuideView" aria-hidden="true">
+  <button id="bedrockGuideClose" type="button" aria-label="Close">&times;</button>
+  <h3>AWS Bedrock setup guide</h3>
+  <pre id="bedrockGuideText">Loading…</pre>
+</div>
+
+  <!-- Soniox Guide Modal -->
+  <div
+    id="sonioxGuideView"
+    class="provider-guide-view"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="sonioxGuideHeading"
+  >
+    <button id="sonioxGuideClose" class="provider-guide-close" type="button" aria-label="Close">&times;</button>
+    <h3 id="sonioxGuideHeading" class="provider-guide-heading">Soniox setup guide</h3>
+    <pre id="sonioxGuideText" class="provider-guide-text">Loading…</pre>
+  </div>
+
+  <!-- Requesty Guide Modal -->
+  <div
+    id="requestyGuideView"
+    class="provider-guide-view"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="requestyGuideHeading"
+  >
+    <button id="requestyGuideClose" class="provider-guide-close" type="button" aria-label="Close">&times;</button>
+    <h3 id="requestyGuideHeading" class="provider-guide-heading">Requesty setup guide</h3>
+    <pre id="requestyGuideText" class="provider-guide-text">Loading…</pre>
+  </div>
+
+  <!-- Google Vertex Guide Modal -->
+  <button id="vertex-guide-link" type="button" hidden aria-hidden="true" tabindex="-1">Guide</button>
+  <div id="vertexGuideView" aria-hidden="true">
+    <button id="vertexGuideClose" type="button" aria-label="Close">&times;</button>
+    <h3>Google Vertex setup guide</h3>
+    <pre id="vertexGuideText">Loading…</pre>
+  </div>
+
+
+  <script type="module" src="./js/features/caps-lock-indicator.js"></script>
+  <script type="module" src="./js/main-index.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+      // --- Analytics: log "Guide" clicks to Google Sheet (same endpoint as transcribe.html) ---
+      let visitorId = localStorage.getItem('visitorId');
+      if (!visitorId) {
+        visitorId = (crypto.randomUUID && crypto.randomUUID()) ||
+                    Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('visitorId', visitorId);
+      }
+
+      function logEvent(params = {}) {
+        const baseUrl = 'https://script.google.com/macros/s/AKfycbz3bpMrPJXAtyNCIoj6h2v3GewLRF90dQeEpC81F_m9rNClLVMUuQEGVO8yinlhssc/exec';
+        const qs = new URLSearchParams({
+          visitorId,
+          page: window.location.pathname,
+          userAgent: navigator.userAgent,
+          referrer: document.referrer,
+          ...params
+        }).toString();
+        fetch(`${baseUrl}?${qs}`, { mode: 'no-cors', keepalive: true });
+      }
+      // AWS Bedrock "Guide" modal (opened from the link next to AWS Bedrock)
+      const bedrockGuideLink = document.getElementById("bedrock-guide-link");
+      const bedrockGuideView = document.getElementById("bedrockGuideView");
+      const bedrockGuideClose = document.getElementById("bedrockGuideClose");
+      const bedrockGuideTextEl = document.getElementById("bedrockGuideText");
+
+      // Track which language we loaded last, so switching language loads the correct guide
+        let bedrockGuideLoadedLang = null;
+
+      function getCurrentLang() {
+        // Your site already stores language here via initIndexLanguage()
+        return localStorage.getItem("siteLanguage") || "en";
+      }
+
+
+      // Deep-link support for the AWS Bedrock guide modal.
+      // If the page is opened with #bedrock-update-stack, automatically open the modal
+      // and scroll to the "Update stack" section inside the guide text.
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function renderBedrockGuideText(rawText) {
+        if (!bedrockGuideTextEl) return;
+
+        const wantsUpdateStack = (location.hash === "#bedrock-update-stack");
+
+        // Default: keep it as plain text.
+        if (!wantsUpdateStack) {
+          bedrockGuideTextEl.textContent = rawText;
+          return;
+        }
+      
+        // Try to locate the relevant section header inside the guide.
+        const patterns = [
+          /\(cloudformation\)/i,
+        ];
+
+        let html = escapeHtml(rawText);
+        let marked = false;
+
+        for (const re of patterns) {
+          const m = rawText.match(re);
+          if (!m) continue;
+
+          const needle = escapeHtml(m[0]);
+          if (html.includes(needle)) {
+            html = html.replace(needle, `<mark id="bedrock-update-stack">${needle}</mark>`);
+            marked = true;
+            break;
+          }
+        }
+
+        bedrockGuideTextEl.innerHTML = html;
+
+        // Scroll within the modal after the DOM updates.
+        requestAnimationFrame(() => {
+          const anchor = document.getElementById("bedrock-update-stack");
+          if (anchor) {
+            anchor.scrollIntoView({ block: "start" });
+          } else if (bedrockGuideView) {
+            // Fallback: scroll to the bottom if we couldn't find the section header.
+            bedrockGuideView.scrollTop = bedrockGuideView.scrollHeight;
+          }
+        });
+      }
+
+      async function loadBedrockGuideForCurrentLanguage() {
+        if (!bedrockGuideTextEl) return;
+
+        const lang = getCurrentLang();
+        if (bedrockGuideLoadedLang === lang) return;
+
+        bedrockGuideTextEl.textContent = "Loading…";
+
+        // Norwegian only when lang === "no". All other languages default to English.
+        const candidates = (lang === "no")
+          ? ["./provider-guides/bedrock-guide.no.txt", "./provider-guides/bedrock-guide.txt"]
+          : ["./provider-guides/bedrock-guide.txt"];
+
+        try {
+          let loaded = false;
+          for (const url of candidates) {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) continue;
+            const txt = await res.text();
+            renderBedrockGuideText(txt);
+            loaded = true;
+            break;
+          }
+          if (!loaded) throw new Error("No guide file could be loaded.");
+          bedrockGuideLoadedLang = lang;
+        } catch (err) {
+          console.error("Failed to load bedrock guide text:", err);
+          bedrockGuideTextEl.textContent =
+            "Could not load the guide text.\n\n" +
+            "If you are the site owner: make sure bedrock-guide.txt exists inside the provider-guides folder (and optionally bedrock-guide.no.txt).";
+          bedrockGuideLoadedLang = null;
+        }
+      }
+
+      function openBedrockGuide() {
+        if (!bedrockGuideView) return;
+        bedrockGuideView.classList.add("active");
+        bedrockGuideView.setAttribute("aria-hidden", "false");
+        loadBedrockGuideForCurrentLanguage();
+      }
+
+      function closeBedrockGuide() {
+        if (!bedrockGuideView) return;
+        bedrockGuideView.classList.remove("active");
+        bedrockGuideView.setAttribute("aria-hidden", "true");
+      }
+
+      if (bedrockGuideLink && bedrockGuideView) {
+        bedrockGuideLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          logEvent({ action: "AWS guide" });
+          openBedrockGuide();
+        });
+      }
+
+      if (bedrockGuideClose) {
+        bedrockGuideClose.addEventListener("click", closeBedrockGuide);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && bedrockGuideView?.classList.contains("active")) {
+          closeBedrockGuide();
+        }
+      });
+
+      // Deep-link: open the Bedrock guide modal automatically when requested
+      if (location.hash === "#bedrock-update-stack") {
+        openBedrockGuide();
+      }
+
+
+      // Soniox and Requesty guides use the same modal pattern as Bedrock and
+      // load the guide matching the selected site language (English fallback).
+      function createProviderGuideController({
+        linkId,
+        viewId,
+        closeId,
+        headingId,
+        textId,
+        filesByLanguage,
+        headingsByLanguage,
+        loadingByLanguage,
+        errorByLanguage,
+        analyticsAction
+      }) {
+        const link = document.getElementById(linkId);
+        const view = document.getElementById(viewId);
+        const closeButton = document.getElementById(closeId);
+        const heading = document.getElementById(headingId);
+        const textElement = document.getElementById(textId);
+        let loadedLanguage = null;
+        let previouslyFocusedElement = null;
+
+        async function loadForCurrentLanguage() {
+          if (!textElement) return;
+
+          const lang = getCurrentLang();
+          if (loadedLanguage === lang) return;
+
+          const englishFile = filesByLanguage.en;
+          const selectedFile = filesByLanguage[lang] || englishFile;
+          if (heading) {
+            heading.textContent = headingsByLanguage[lang] || headingsByLanguage.en;
+          }
+          textElement.textContent = loadingByLanguage[lang] || loadingByLanguage.en;
+
+          const candidates = selectedFile === englishFile
+            ? [englishFile]
+            : [selectedFile, englishFile];
+
+          try {
+            let loaded = false;
+            for (const url of candidates) {
+              const response = await fetch(url, { cache: "no-store" });
+              if (!response.ok) continue;
+              textElement.textContent = await response.text();
+              loaded = true;
+              break;
+            }
+            if (!loaded) throw new Error("No guide file could be loaded.");
+            loadedLanguage = lang;
+          } catch (error) {
+            console.error(`Failed to load ${viewId}:`, error);
+            textElement.textContent = errorByLanguage[lang] || errorByLanguage.en;
+            loadedLanguage = null;
+          }
+        }
+
+        function open() {
+          if (!view) return;
+          previouslyFocusedElement = document.activeElement;
+          view.classList.add("active");
+          view.setAttribute("aria-hidden", "false");
+          view.scrollTop = 0;
+          loadForCurrentLanguage();
+          closeButton?.focus();
+        }
+
+        function close() {
+          if (!view) return;
+          view.classList.remove("active");
+          view.setAttribute("aria-hidden", "true");
+          if (previouslyFocusedElement instanceof HTMLElement) {
+            previouslyFocusedElement.focus();
+          }
+          previouslyFocusedElement = null;
+        }
+
+        function refreshForLanguage() {
+          loadedLanguage = null;
+          if (view?.classList.contains("active")) {
+            loadForCurrentLanguage();
+          }
+        }
+
+        link?.addEventListener("click", (event) => {
+          event.preventDefault();
+          logEvent({ action: analyticsAction });
+          open();
+        });
+        closeButton?.addEventListener("click", close);
+
+        return { view, close, refreshForLanguage };
+      }
+
+      const sonioxGuideController = createProviderGuideController({
+        linkId: "soniox-guide-link",
+        viewId: "sonioxGuideView",
+        closeId: "sonioxGuideClose",
+        headingId: "sonioxGuideHeading",
+        textId: "sonioxGuideText",
+        filesByLanguage: {
+          en: "./provider-guides/soniox-guide.txt",
+          no: "./provider-guides/soniox-guide.no.txt",
+          sv: "./provider-guides/soniox-guide.sv.txt",
+          de: "./provider-guides/soniox-guide.de.txt",
+          fr: "./provider-guides/soniox-guide.fr.txt",
+          it: "./provider-guides/soniox-guide.it.txt"
+        },
+        headingsByLanguage: {
+          en: "Soniox setup guide",
+          no: "Oppsettsguide for Soniox",
+          sv: "Installationsguide för Soniox",
+          de: "Einrichtungsanleitung für Soniox",
+          fr: "Guide de configuration de Soniox",
+          it: "Guida alla configurazione di Soniox"
+        },
+        loadingByLanguage: {
+          en: "Loading…", no: "Laster…", sv: "Läser in…",
+          de: "Wird geladen…", fr: "Chargement…", it: "Caricamento…"
+        },
+        errorByLanguage: {
+          en: "Could not load the guide text. Make sure the guide file exists inside the provider-guides folder.",
+          no: "Kunne ikke laste guideteksten. Kontroller at guidefilen finnes i mappen provider-guides.",
+          sv: "Det gick inte att läsa in guiden. Kontrollera att guidefilen finns i mappen provider-guides.",
+          de: "Der Leitfaden konnte nicht geladen werden. Prüfen Sie, ob die Datei im Ordner provider-guides vorhanden ist.",
+          fr: "Impossible de charger le guide. Vérifiez que le fichier se trouve dans le dossier provider-guides.",
+          it: "Impossibile caricare la guida. Verificare che il file sia presente nella cartella provider-guides."
+        },
+        analyticsAction: "Soniox guide"
+      });
+
+      const requestyGuideController = createProviderGuideController({
+        linkId: "requesty-guide-link",
+        viewId: "requestyGuideView",
+        closeId: "requestyGuideClose",
+        headingId: "requestyGuideHeading",
+        textId: "requestyGuideText",
+        filesByLanguage: {
+          en: "./provider-guides/requesty-guide.txt",
+          no: "./provider-guides/requesty-guide.no.txt",
+          sv: "./provider-guides/requesty-guide.sv.txt",
+          de: "./provider-guides/requesty-guide.de.txt",
+          fr: "./provider-guides/requesty-guide.fr.txt",
+          it: "./provider-guides/requesty-guide.it.txt"
+        },
+        headingsByLanguage: {
+          en: "Requesty setup guide",
+          no: "Oppsettsguide for Requesty",
+          sv: "Installationsguide för Requesty",
+          de: "Einrichtungsanleitung für Requesty",
+          fr: "Guide de configuration de Requesty",
+          it: "Guida alla configurazione di Requesty"
+        },
+        loadingByLanguage: {
+          en: "Loading…", no: "Laster…", sv: "Läser in…",
+          de: "Wird geladen…", fr: "Chargement…", it: "Caricamento…"
+        },
+        errorByLanguage: {
+          en: "Could not load the guide text. Make sure the guide file exists inside the provider-guides folder.",
+          no: "Kunne ikke laste guideteksten. Kontroller at guidefilen finnes i mappen provider-guides.",
+          sv: "Det gick inte att läsa in guiden. Kontrollera att guidefilen finns i mappen provider-guides.",
+          de: "Der Leitfaden konnte nicht geladen werden. Prüfen Sie, ob die Datei im Ordner provider-guides vorhanden ist.",
+          fr: "Impossible de charger le guide. Vérifiez que le fichier se trouve dans le dossier provider-guides.",
+          it: "Impossibile caricare la guida. Verificare che il file sia presente nella cartella provider-guides."
+        },
+        analyticsAction: "Requesty guide"
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (sonioxGuideController.view?.classList.contains("active")) {
+          sonioxGuideController.close();
+        }
+        if (requestyGuideController.view?.classList.contains("active")) {
+          requestyGuideController.close();
+        }
+      });
+
+
+      // Google Vertex "Guide" modal (opened from the link next to Google Vertex)
+      const vertexGuideLink = document.getElementById("vertex-guide-link");
+      const vertexGuideView = document.getElementById("vertexGuideView");
+      const vertexGuideClose = document.getElementById("vertexGuideClose");
+      const vertexGuideTextEl = document.getElementById("vertexGuideText");
+
+      // Track which language we loaded last, so switching language loads the correct guide
+      let vertexGuideLoadedLang = null;
+
+      async function loadVertexGuideForCurrentLanguage() {
+        if (!vertexGuideTextEl) return;
+
+        const lang = getCurrentLang();
+        if (vertexGuideLoadedLang === lang) return;
+
+        vertexGuideTextEl.textContent = "Loading…";
+
+        // Norwegian only when lang === "no". All other languages default to English.
+        const candidates = (lang === "no")
+          ? ["./vertex-guide.no.txt", "./vertex-guide.txt"]
+          : ["./vertex-guide.txt"];
+
+        try {
+          let loaded = false;
+          for (const url of candidates) {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) continue;
+            vertexGuideTextEl.textContent = await res.text();
+            loaded = true;
+            break;
+          }
+          if (!loaded) throw new Error("No guide file could be loaded.");
+          vertexGuideLoadedLang = lang;
+        } catch (err) {
+          console.error("Failed to load vertex guide text:", err);
+          vertexGuideTextEl.textContent =
+            "Could not load the guide text.\n\n" +
+            "If you are the site owner: make sure vertex-guide.txt exists next to index.html (and optionally vertex-guide.no.txt).";
+          vertexGuideLoadedLang = null;
+        }
+      }
+
+      function openVertexGuide() {
+        if (!vertexGuideView) return;
+        vertexGuideView.classList.add("active");
+        vertexGuideView.setAttribute("aria-hidden", "false");
+        loadVertexGuideForCurrentLanguage();
+      }
+
+      function closeVertexGuide() {
+        if (!vertexGuideView) return;
+        vertexGuideView.classList.remove("active");
+        vertexGuideView.setAttribute("aria-hidden", "true");
+      }
+
+      if (vertexGuideLink && vertexGuideView) {
+        vertexGuideLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          logEvent({ action: "Vertex Guide" });
+          openVertexGuide();
+        });
+      }
+
+      if (vertexGuideClose) {
+        vertexGuideClose.addEventListener("click", closeVertexGuide);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && vertexGuideView?.classList.contains("active")) {
+          closeVertexGuide();
+        }
+      });
+
+
+      // If the user changes language while a guide modal is open, refresh the modal content
+      // immediately (so they don't need to close/reopen).
+      const langSelectEl = document.getElementById("lang-select");
+      const refreshOpenGuidesForLanguage = () => {
+        // Defer to the next frame so any other language-change handler can update storage/DOM first.
+        requestAnimationFrame(() => {
+          bedrockGuideLoadedLang = null;
+          vertexGuideLoadedLang = null;
+          sonioxGuideController.refreshForLanguage();
+          requestyGuideController.refreshForLanguage();
+
+          if (bedrockGuideView?.classList.contains("active")) {
+            loadBedrockGuideForCurrentLanguage();
+          }
+          if (vertexGuideView?.classList.contains("active")) {
+            loadVertexGuideForCurrentLanguage();
+          }
+        });
+      };
+      langSelectEl?.addEventListener("change", refreshOpenGuidesForLanguage);
+      // Some browsers/UI patterns can fire `input` earlier than `change` for selects.
+      langSelectEl?.addEventListener("input", refreshOpenGuidesForLanguage);
+      document.addEventListener("keydown", function(e) {
+        // Check if the pressed key is "Enter"
+        if (e.key === "Enter") {
+          // Optionally, you can check if the active element is not an input, textarea, or editable element
+          const btn = document.getElementById("enterTranscriptionBtn");
+          if (btn) {
+            btn.click();
+          }
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,477 @@
+## 16. september 2026
+
+### Bedre Workspaces, Mini Panel, sikkerhetskopiering og nye AI-modeller
+
+Det har kommet flere forbedringer som gjør det enklere å arbeide med flere oppgaver, gjenopprette tidligere innhold og flytte innstillinger mellom ulike enheter.
+
+#### Workspaces og historikk
+
+Du kan nå:
+
+- **Klone et Workspace** for å opprette en identisk kopi.
+- Endre rekkefølgen på Workspaces ved å dra dem.
+- Dele historikk mellom Workspaces som er klonet fra hverandre.
+- Gjenopprette et tidligere historikkelement i det aktive Workspace-et eller i et nytt Workspace.
+- Gjenopprette transkripsjon, supplerende informasjon og generert notat samlet.
+- Beholde valgt Auto-copy-innstilling ved eksport og import av Workspace Sets.
+
+Workspaces som opprettes med **+**, har fortsatt sin egen separate historikk. Det kan være opptil 12 Workspaces åpne samtidig.
+
+#### Forbedret Mini Panel
+
+Mini Panel har fått bedre synkronisering med den valgte nettleserfanen og det valgte Workspace-et. Dette gjør styring av opptak og notatgenerering fra panelet mer pålitelig.
+
+**Google Chrome anbefales for Mini Panel**, siden andre nettlesere kanskje ikke fungerer riktig med denne funksjonen.
+
+#### Nye og oppdaterte AI-modeller
+
+Følgende modeller er nå tilgjengelige direkte via OpenAI:
+
+- **GPT-5.6 Sol**
+- **GPT-5.6 Terra**
+- **GPT-5.6 Luna**
+- **GPT-5 Nano**
+
+Via Requesty er **Gemini 3.7 Flash** erstattet med **Gemini 3.8 Flash EU**. Følgende modeller er også lagt til:
+
+- **DeepSeek V4 Pro**
+- **DeepSeek V4.1 Flash**
+
+Valg for reasoning, tokenpriser og kostnadsberegning er oppdatert for de nye modellene.
+
+#### Enklere sikkerhetskopiering og gjenoppretting
+
+Et felles **Cloud Backup Password** kan nå brukes for API-nøkler, prompter og Workspace Sets i den aktive faneøkten.
+
+Når API-nøkler importeres fra Google Drive eller Microsoft OneDrive, kan appen også finne tilgjengelige sikkerhetskopier av prompter og Workspace Sets. Du kan deretter velge hvilke av dem du ønsker å hente inn.
+
+Eldre sikkerhetskopier med separate passord støttes fortsatt. Import av et Workspace Set spør nå bare én gang etter krypteringspassordet.
+
+#### Enklere prompter og flere små forbedringer
+
+Den synlige Prompt Profile ID-funksjonen er fjernet. Promptlisten lagres nå enklere i nettleseren, mens alle de 20 promptplassene og navnene deres fortsatt kan inkluderes i sikkerhetskopier.
+
+---
+
+## 20. august 2026
+
+### Nye Workspaces, to Mini Panel-visninger og separat historikk
+
+Du kan nå ha flere separate **Workspaces** i samme nettleserfane. Samlingen av disse kalles et **Workspace Set**. Hvert Workspace beholder egne tekster, valgt prompt, tilbydere, modeller og innstillinger. Opptak og notatgenerering kan fortsette i bakgrunnen mens du bytter Workspace.
+
+Mini Panel har nå to visninger. Bruk ikonet øverst til høyre i panelet for å bytte mellom dem:
+
+- **Mini Panel — Browser Tabs** lar deg bytte mellom og styre separate Transcribe Notes-faner. Dette passer godt dersom du foretrekker ett Workspace per nettleserfane.
+- **Mini Panel — Workspaces** viser og styrer alle Workspaces i den valgte Transcribe Notes-fanen. Dette passer godt dersom du vil ha flere arbeidsområder i samme nettleserfane.
+
+Du kan eksportere eller importere et Workspace Set som en lokal JSON-fil eller via Microsoft OneDrive og Google Drive. Lagringen inkluderer antall og rekkefølge på Workspaces, navn, valgte promptplasser med tilhørende prompttekst og navn, tilbydere, modeller, reasoning-valg, relevante avkrysningsbokser og om blant annet Secondary Note og Redactor er åpne.
+
+Transkripsjoner, supplerende informasjon, genererte notater, historikk, lydopptak, API-nøkler, passord og andre pasientopplysninger blir ikke inkludert. Skykopier krypteres i nettleseren. Lokale JSON-filer er lesbare og bør oppbevares sikkert.
+
+Historikkolonnen følger nå det aktive Workspace-et automatisk. Hvert Workspace har sin egen logg med de 30 siste fullførte primære notatgenereringene. Når du åpner et historikkelement, vises transkripsjonen, den supplerende informasjonen som ble brukt, og det genererte notatet i tre like store felt. Historikken lagres bare i den aktuelle faneøkten og fjernes når fanen lukkes eller historikken tømmes.
+
+---
+
+## 17. august 2026
+
+### Enkel sikkerhetskopiering av API-nøkler og tilpassede prompter til OneDrive eller Google Drive
+
+Du kan nå sikkerhetskopiere både API-nøklene og de tilpassede promptene dine direkte til din egen **Microsoft OneDrive** eller **Google Drive**. Dette gjør det enklere å flytte til en ny PC eller nettleser, uten at du trenger å laste ned, oppbevare og finne igjen separate JSON-filer.
+
+#### API-nøkler
+
+Før du eksporterer, må du kontrollere at **alle nøklene og hemmelighetene du ønsker å sikkerhetskopiere, er ferdig utfylt i de riktige feltene på forsiden**. Backupen bruker verdiene som står i feltene når du eksporterer, og tomme felt lagres som tomme. Trykk deretter **Export keys**, velg **Microsoft OneDrive** eller **Google Drive**, og opprett et eget krypteringspassord.
+
+Når du senere vil hente tilbake nøklene, trykker du **Import keys**, velger den samme skyløsningen, logger inn med den samme Microsoft- eller Google-kontoen og skriver inn krypteringspassordet. Feltene trenger ikke å være utfylt før import. Nøklene hentes fra backupen og fylles automatisk inn. Kontroller feltene og trykk deretter **Enter** som vanlig.
+
+#### Tilpassede prompter
+
+Tilpassede prompter kan nå sikkerhetskopieres på den samme enkle måten. Velg først promptprofilen du ønsker å sikkerhetskopiere, og kontroller at **alle promptene du ønsker å ta med, er ferdig utfylt i promptplassene sine**. Trykk **Eksporter** over feltet for tilpasset prompt, og velg JSON-fil, **Microsoft OneDrive** eller **Google Drive**. En skyeksport tar med alle de 20 promptplassene og navnene deres fra den aktive promptprofilen, inkludert eventuelle tomme plasser.
+
+Når du senere vil hente tilbake promptene, velger du ønsket aktiv promptprofil, trykker **Importer**, velger den samme skytjenesten, logger inn med den samme Microsoft- eller Google-kontoen og skriver inn krypteringspassordet. En promptkopi må ha blitt eksportert til tjenesten på forhånd. Import erstatter alle 20 promptplassene og navnene i den aktive profilen. Dersom sikkerhetskopien ble laget fra en profil med et annet navn, viser appen en tydelig advarsel før noe erstattes; importen bytter ikke profil automatisk.
+
+#### Kryptering og lagring
+
+API-nøklene og promptene krypteres i nettleseren før backupfilene lastes opp. Backupene lagres bare i skylagringen til den innloggede brukeren – ikke i apputviklerens Microsoft- eller Google-konto. Appen har kun tilgang til sin egen OneDrive-mappe eller det private Google Drive-appområdet og kan ikke overskrive brukerens andre filer. Sikkerhetskopien av API-nøkler og sikkerhetskopien av prompter lagres også som separate filer, slik at de ikke kan overskrive hverandre. Krypteringspassordet blir aldri lagret eller lastet opp, så det er viktig å huske det. Uten riktig passord kan en sikkerhetskopi ikke åpnes.
+
+En ny eksport erstatter bare den forrige sikkerhetskopien av samme type i den valgte skytjenesten. En ny eksport av prompter til OneDrive erstatter for eksempel den tidligere OneDrive-kopien av promptene, men påvirker ikke sikkerhetskopien av API-nøkler, Google Drive-kopien eller andre filer. Den vanlige eksporten og importen med JSON-fil er fortsatt tilgjengelig for dem som foretrekker det.
+
+---
+
+## 28. juli 2026
+
+### Ny historikk for genererte notater
+
+En ny historikkolonne er lagt til på venstre side av appen. Her finner du de 30 siste genererte notatene sammen med transkripsjonene som ble brukt. Klikk på et element for å åpne transkripsjonen og notatet. Historikken beholdes ved oppdatering av siden, men slettes når fanen lukkes eller når du trykker **Clear**.
+
+---
+
+## 25. juli 2026
+
+### Ny modul for sekundær notatgenerering
+
+Appen har fått en egen modul for sekundær notatgenerering. Denne kan brukes til å oppsummere større tekstmengder, for eksempel utdrag fra en pasientjournal. Sammendraget kan deretter overføres til feltet for tilleggsinformasjon og brukes som bakgrunn når det endelige notatet genereres.
+
+Behandling av store tekstmengder kan kreve mange tokens. Det kan derfor være hensiktsmessig å bruke en rimelig modell, som **GPT-5 Nano**, til oppsummeringen og deretter en kraftigere modell, som **Claude Opus 5**, til den primære notatgenereringen.
+
+### Nye og oppdaterte modeller i Requesty
+
+Requesty-leverandøren, som ble introdusert i oppdateringen 3. juli, har fått følgende endringer:
+
+- **GPT-5 Nano** er lagt til som et nytt og svært rimelig alternativ.
+- **Claude Opus 4.8** er erstattet av **Claude Opus 5**, som kjøres via AWS Bedrock i Stockholm (`eu-north-1`).
+- **GPT-5.5** og **Claude Sonnet 5** er fortsatt tilgjengelige.
+
+Claude Opus 5 har samme tokenpris som den tidligere Opus 4.8-modellen: **$5,50 per 1 million input-tokens** og **$27,50 per 1 million output-tokens**.
+
+Alle Requesty-modellene i appen benytter EU-baserte modellendepunkter og Requestys EU-ruter. Egenskapene som ble beskrevet i den tidligere oppdateringen – zero data retention, ingen bruk av data til modelltrening og behandling innenfor EU – gjelder fortsatt.
+
+<a href="index.html#requesty-api-key" target="_blank" rel="noopener">**Klikk her for veiledning i hvordan du oppretter en Requesty-konto, fyller på kreditter og skaffer en API-nøkkel**</a> 
+
+---
+
+## 3. juli 2026
+
+### Nye Gemini-modeller i Google Vertex: Gemini 3.5 Flash og Gemini 3.1 Flash-Lite
+
+To nye Gemini-modeller er lagt til i **Google Vertex**-leverandøren for notatgenerering:
+
+- **Gemini 3.5 Flash** — Googles nyeste Flash-modell, som leverer nesten Pro-nivå intelligens med Flash-klassens hastighet og kostnad. Les mer på den offisielle siden: <a href="https://deepmind.google/models/gemini/flash/" target="_blank" rel="noopener">Gemini 3.5 Flash (Google DeepMind)</a>
+- **Gemini 3.1 Flash-Lite** — Googles raskeste og mest kostnadseffektive Gemini-modell, godt egnet for raske oppgaver i stort volum. Les mer her: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/" target="_blank" rel="noopener">Gemini 3.1 Flash-Lite (Google)</a>
+
+**Viktig:** For å kunne bruke disse nye modellene via Google Vertex-leverandøren, må du **oppdatere Google Vertex-backenden din**. For å gjøre dette, følg oppdateringsinstruksjonene helt nederst i <a href="index.html#vertex-update-backend" target="_blank" rel="noopener">**Google Vertex-guiden**</a> (lenken åpner guiden direkte ved oppdateringsdelen).
+
+### Ny GDPR-vennlig leverandør for notatgenerering: Requesty
+
+En ny leverandør for notatgenerering er lagt til i appen: **Requesty**.
+
+Requesty er en LLM-gateway som gir deg tilgang til toppmodeller fra flere leverandører via én enkelt API-nøkkel. I denne appen brukes Requesty via sitt **EU-endepunkt** med EU-baserte modell-deployeringer — som betyr **zero data retention**, **ingen bruk av dine data til modelltrening**, og **all databehandling innenfor EU**.
+
+Med Requesty-leverandøren i denne appen kan du generere notater med **GPT-5.5**, **Claude Opus 4.8** og **Claude Sonnet 5** — noen av de sterkeste modellene som finnes i dag — på en GDPR-vennlig måte.
+
+Nye Requesty-kontoer får også **$10 USD i gratis kreditter**, slik at du kan prøve leverandøren med én gang før du eventuelt fyller på kreditter senere.
+
+<a href="index.html#requesty-api-key" target="_blank" rel="noopener">**Klikk her for veiledning i hvordan du skaffer en Requesty API-nøkkel**</a> — lenken åpner forsiden direkte ved Requesty-delen av «API key - How to Get»-guiden.
+
+---
+
+## 8. mai 2026
+
+### Midlertidig bortfall av tilgang til Claude Opus 4.7 i AWS Bedrock
+
+Det er for øyeblikket rapportert at **AWS Bedrock har fjernet eller begrenset tilgangen til Claude Opus 4.7** for mange kontoer, uten at det foreløpig finnes en tydelig forklaring fra AWS på hvorfor dette har skjedd.
+
+Problemet ser ut til å ha startet rundt **1. mai 2026**. Brukere som tidligere hadde tilgang til Opus 4.7 kan nå få feilmeldinger som sier at modellen **ikke er tilgjengelig for kontoen**, også direkte i AWS Bedrock Playground. Dette tyder på at problemet ligger hos AWS Bedrock / modelltilgangen, og ikke i selve Transcribe Notes-appen eller CloudFormation-stacken.
+
+Inntil videre anbefales det å bruke de andre **Claude-modellene via AWS Bedrock**, for eksempel:
+
+- **Claude Haiku 4.5**
+- **Claude Sonnet 4.6**
+- **Claude Sonnet 4.5**
+- **Claude Opus 4.6**
+- **Claude Opus 4.5**
+
+Vi må foreløpig avvente mer informasjon fra AWS, og håpe at tilgangen til **Claude Opus 4.7** blir gjenopprettet snart for berørte brukere. Hvis du får feilmelding ved bruk av Opus 4.7, velg en av de andre Claude-modellene i modellmenyen og prøv på nytt.
+
+---
+
+## 25. april 2026
+
+### GPT-5.5 lagt til i OpenAI notatgenerering
+
+OpenAIs nyeste modell, **GPT-5.5**, er nå lagt til i modell-nedtrekksmenyen når du bruker OpenAI til notatgenerering. På samme måte som de andre GPT-5.x-modellene kan du velge mellom **streaming** og **non-streaming**-modus, og du kan justere **reasoning-nivået** (None / Low / Medium / High).
+
+GPT-5.5 er OpenAIs smarteste og mest kapable modell hittil. Sammenlignet med GPT-5.4 følger den komplekse instrukser mer presist, er sterkere på flertrinnsresonnering, og er mer effektiv — den oppnår generelt sterke resultater med færre reasoning-tokens på samme reasoning-nivå. OpenAI omtaler den som en "ny klasse av intelligens" beregnet for seriøst profesjonelt arbeid.
+
+**Pris — GPT-5.5 vs GPT-5.4 (USD per 1M tokens):**
+
+| Modell | Input | Output |
+| --- | --- | --- |
+| GPT-5.4 | $2,50 | $15,00 |
+| GPT-5.5 | $5,00 | $30,00 |
+
+Med andre ord er GPT-5.5 omtrent **dobbelt så dyr per token** som GPT-5.4. Fordi GPT-5.5 er mer token-effektiv i praksis, vil den reelle kostnadsforskjellen per ferdig notat ofte være mindre enn 2×, men man bør likevel forvente en merkbar økning i kostnad ved å bytte fra 5.4 til 5.5.
+
+Standardverdien for reasoning-nivå på OpenAI GPT-5.x-modellene er endret fra **None** til **Low**. Du kan når som helst endre den tilbake fra reasoning-nedtrekksmenyen.
+
+### Viktig om personvern / GDPR:
+Vær oppmerksom på at bruk av **GPT-5.5** og de andre **OpenAI-modellene** i dagens standardoppsett **ikke er GDPR-kompatibelt for sensitive/pasientrelaterte data**, fordi data **ikke behandles i EU som standard**, og OpenAI opplyser at API-data kan **lagres i opptil 30 dager før sletting**.
+
+For arbeidsflyter for notatgenerering som krever et **GDPR-kompatibelt oppsett**, anbefales **AWS Bedrock** i stedet.
+
+### "Gå til valgt fane"-knapp lagt til i Mini panelet
+
+En ny liten knapp er lagt til i **Mini panelet**, plassert rett under lukke-knappen (×). Når man klikker på denne knappen, hentes Chrome-fanen som er valgt i Mini panelets fanevelger frem i fokus — selv om Chrome er minimert eller ligger bak et annet program på skjermen. Dette er nyttig når Mini panelet ligger sticky i et hjørne og du jobber i et annet program; ett klikk tar deg rett tilbake til riktig Transcribe Notes-fane.
+
+**Knappen fungerer kun i Google Chrome**, fordi den er avhengig av Auto-copy Chrome-utvidelsen for å faktisk kunne bytte fane på tvers av vinduer og programmer.
+
+For at knappen skal fungere må du **laste ned Auto-copy zip-filen på nytt** her: <a href="div/autocopy.zip" download>autocopy.zip</a>, og erstatte den gamle utvidelsen med denne oppdaterte versjonen. Det gjør du ved å gå til <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>, fjerne den gamle "Note Auto-Copy Extension", deretter klikke **Load unpacked** og velge den nye utpakkede mappen. Selve auto-copy-funksjonaliteten er uendret — det er kun den nye "gå til valgt fane"-funksjonen som krever den oppdaterte utvidelsen.
+
+Hvis den nye knappen ikke vises i Mini panelet etter at utvidelsen er erstattet, oppdater Transcribe Notes-siden og åpne Mini panelet på nytt.
+
+---
+
+## 22. april 2026
+
+### Claude Opus 4.7 nå tilgjengelig i AWS Bedrock
+
+**Claude Opus 4.7** — Anthropics nyeste og mest kapable modell — er nå lagt til i AWS Bedrock-modellmenyen. Du kan velge den fra modell-nedtrekksmenyen når du bruker AWS Bedrock for notatgenerering.
+
+Opus 4.7 er en oppgradering fra Opus 4.6 med bedre generell ytelse. Modellen følger instruksjoner mer presist og er grundigere i problemløsningen. Prisen er den samme som for Opus 4.6.
+
+**For å bruke Claude Opus 4.7 må du oppdatere CloudFormation-stacken din.** Dette legger til den nye modellen i Lambda-proxyen din. Dine eksisterende innstillinger (URL, hemmelig nøkkel, andre modeller) blir ikke påvirket.
+
+<a href="index.html#bedrock-update-stack" target="_blank">Klikk her for å åpne oppdateringsguiden for AWS Bedrock</a>
+
+Etter oppdateringen velger du **Claude Opus 4.7** fra Bedrock-modellmenyen i appen og genererer et notat for å bekrefte at det fungerer.
+
+---
+
+## 13. april 2026
+
+### Nytt Mini panel lagt til
+
+Appen er nå oppdatert med et nytt **Mini panel**.
+
+Mini panelet gjør det enklere å styre opptak og jobbe med transkripsjon/notat i et mindre kontrollvindu som kan holdes synlig mens du arbeider videre. Panelet inneholder de viktigste funksjonene fra hovedsiden, som opptakskontroller og rask tilgang til transkripsjon-/notatrelaterte handlinger.
+
+Mini panelet er foreløpig først og fremst tilpasset **Google Chrome**. Det vil sannsynligvis også fungere i andre nettlesere, men den spesielle **sticky**-funksjonen er i hovedsak forventet å fungere i Chrome.
+
+Med **sticky** menes at Mini panelet kan ligge synlig over andre programmer og nettleservinduer mens du jobber videre andre steder, slik at du slipper å bytte tilbake til app-fanen hele tiden.
+
+I nettlesere som **Safari** og **Firefox** kan Mini panelet fortsatt åpnes og fungere, men den sticky always-on-top-funksjonen kan ikke forventes å fungere på samme måte.
+
+### Nye Google AI Studio-modeller lagt til
+
+Det er nå lagt til nye modeller for **Google AI Studio** i notatmodulen, inkludert **Gemini 3.1** og **Gemini 3 Flash**.
+
+### Viktig om personvern / GDPR
+
+Vær oppmerksom på at bruk av **Google AI Studio** i dagens oppsett **ikke er GDPR-kompatibelt** for sensitive/pasientrelaterte data. Dette må brukere ta hensyn til før modellene tas i bruk. De beste GDPR vennlige modellene for notatgenerering i denne appen vil være Claude modellene via AWS Bedrock. For mer info om hvordan man setter opp AWS Bedrock, se forsiden.
+
+### Auto-copy-utvidelsen er oppdatert (Chrome)
+
+**Auto-copy**-utvidelsen er nå oppdatert slik at den også kan auto-kopiere **transkripsjonen**, og ikke bare det ferdige notatet.
+
+For å få denne nye funksjonen må du laste ned **Auto-copy zip-filen** på nytt her: <a href="div/autocopy.zip" download>autocopy.zip</a>, og installere den oppdaterte versjonen av Chrome-utvidelsen.
+
+Hvis du installerte utvidelsen **før 13. april 2026**, bør du først fjerne den gamle versjonen og deretter installere den nye.
+
+### Ny fargekoding for faner
+
+Hvis du har flere app-faner åpne samtidig, får hver fane nå sin egen **fargekode**.
+
+Dette vises både på selve fanesymbolet og i **fanevelgeren** i Mini panelet, slik at det blir enklere å se hvilken fane du styrer.
+
+---
+
+## 30. mars 2026
+
+### Ny auto-copy funksjon lagt til for ferdige notater
+
+Det er nå lagt til en ny **Auto-copy**-funksjon i appen.
+
+Når denne funksjonen er aktivert, blir ferdige notater automatisk kopiert til utklippstavlen så snart notatgenereringen er fullført. Dette betyr at du kan trykke **Ctrl + V** og lime inn notatet med en gang, selv om Transcribe Notes-fanen ikke er i fokus.
+
+Du kan derfor fortsette å jobbe i et annet program, en annen nettleserfane eller et annet vindu mens notatet genereres. Når notatet er ferdig og kopiert, kan det også vises et **skrivebordsvarsel / notification**, slik at du får beskjed med en gang om at notatet er klart.
+
+### Slik bruker du auto-copy funksjonen
+
+For å bruke denne funksjonen må du først installere Chrome-utvidelsen som er knyttet til auto-copy.
+
+Utvidelsen kan lastes ned direkte fra **Auto-copy-tooltipen** i appen. Åpne tooltip-ikonet ved siden av Auto-copy-valget og klikk på nedlastingslenken der.
+
+Etter nedlasting:
+1. Pakk ut `.zip`-filen slik at du får en vanlig mappe
+2. Åpne Chrome Extensions ved å gå til <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>
+3. Slå på **Developer mode** øverst til høyre
+4. Klikk **Load unpacked**
+5. Velg den utpakkede mappen for utvidelsen
+6. Oppdater / refresh Transcribe Notes-siden
+7. Slå på **Auto-copy** i appen
+
+Det ligger også en README-tekstfil inni den utpakkede mappen med installasjonsinstruksjoner. 
+
+### Varsler i Windows
+
+For å få Chrome-varslet når kopieringen er fullført, må varsler være tillatt både i **Windows** og i **Chrome**. Hvis én av dem blokkerer varsler, kan popup-varslet utebli. 
+
+I Windows går du til:
+
+**Innstillinger → System → Varsler**
+
+Kontroller at:
+- Varsler er slått på
+- Google Chrome har tillatelse til å sende varsler
+
+I Chrome må varsler også være tillatt for det aktuelle nettstedet under:
+
+**Innstillinger → Personvern og sikkerhet → Nettstedsinnstillinger → Varsler** 
+
+Kontroller også at **Ikke forstyrr / Fokusassistent** er slått av, eller at Chrome er tillatt.
+
+### Viktig ved bruk i inkognitovindu
+
+Hvis du bruker appen i et **inkognitovindu**, må du også tillate at utvidelsen kan brukes i inkognito.
+
+Dette gjør du slik:
+1. Åpne <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>
+2. Finn den installerte auto-copy-utvidelsen
+3. Klikk på **Details**
+4. Slå på valget som tillater bruk i **Incognito**
+
+Hvis dette ikke er aktivert, vil auto-copy-funksjonen ikke fungere i inkognitovinduer.
+
+Denne nye funksjonen kan gjøre arbeidsflyten raskere og mer fleksibel, spesielt hvis du vil jobbe videre andre steder mens du venter på at et notat skal bli ferdig.
+
+---
+
+## 30. mars 2026
+
+### Ny auto-copy funksjon lagt til for ferdige notater
+
+Det er nå lagt til en ny **Auto-copy**-funksjon for notatgenerering.
+
+Når denne funksjonen er slått på, blir ferdige notater automatisk kopiert til utklippstavlen straks notatet er klart. Dette gjør at du kan trykke **Ctrl + V** med en gang for å lime inn notatet, selv om du ikke har app-fanen i fokus.
+
+Du kan derfor fortsette å jobbe i et annet program, et annet vindu eller en annen nettleserfane mens notatet genereres.
+
+Når notatet er ferdig kopiert, vises det også et **skrivebordsvarsel/notification** slik at du får beskjed med en gang uten å måtte følge med på appen hele tiden.
+
+Dette kan gjøre arbeidsflyten raskere og mer praktisk, spesielt hvis du venter på notatet mens du gjør andre oppgaver parallelt.
+
+---
+
+## 26. mars 2026
+
+Det er nå lagt til en **Avbryt**-knapp for notatgenerering.
+
+Hvis et notat er i ferd med å bli generert og du vil stoppe det, kan du nå klikke **Avbryt** for å avbryte den pågående genereringen og starte et nytt notat.
+
+Det er også nå lagt til løpende **ordtelling** og **tokentelling** for transkripsjonsfeltet, feltet for tilleggsopplysninger og promptfeltet.
+
+I tillegg er det lagt til visuelle signaler som gjør det enklere å se når transkribering og notatgenerering har startet eller er fullført.
+
+---
+
+## 16. mars 2026
+
+### Ny abort-knapp lagt til under opptak
+
+Det er nå lagt til en egen **Abort**-knapp under opptak. Denne kan brukes hvis du vil avbryte et pågående opptak uten å sende det til transkripsjon.
+
+Tidligere var eneste måte å avbryte et opptak på å oppdatere/refresh(F5) siden. Hvis du i stedet trykket **Stop**, ble opptaket transkribert så langt det var kommet, noe som også kunne gi token-kostnad for et opptak du egentlig ikke ønsket å transkribere.
+
+---
+
+## 15. mars 2026
+
+### Fikset: informasjonsknappene på forsiden fungerer igjen
+
+Det ble nylig oppdaget at informasjonsmodulene/informasjonsknappene på forsiden ved en feil har vært deaktivert den siste uken eller to.
+
+Dette er nå rettet, og informasjonsknappene kan igjen åpnes og vises som normalt.
+
+---
+
+## 11. mars 2026
+
+### Viktig: oppdater nettsiden jevnlig for å få nyeste versjon
+
+Denne appen er **100 % front-end**, noe som betyr at oppdateringer i appen først blir synlige når nettsiden oppdateres.
+
+Hvis du lar appen stå åpen i en nettleserfane over lang tid, for eksempel i dager eller uker, kan du fortsatt se en eldre versjon av appen selv om nye oppdateringer allerede er lagt ut.
+
+For å være sikker på at du bruker nyeste versjon, bør du refreshe/oppdatere siden jevnlig. På Windows kan du bruke **Ctrl + F5** for å gjøre en hard refresh.
+
+Dette er spesielt viktig etter at nye oppdateringer eller endringer er gjort i appen.
+
+---
+
+## 9. mars 2026
+
+### Ny Redactor-modul lagt til
+
+En ny **Redactor**-modul er nå lagt til appen.
+
+Dette verktøyet gjør det mulig å raskt sladde eller skjule sensitiv informasjon i diktat og supplerende informasjons-feltene ved behov, før videre bruk. Modulen støtter både **generelle begreper** og **spesifikke begreper**, som brukes når du klikker **Redact**. Det er også lagt til en innebygd **fødselsdatohjelper** for å gjøre det enklere å legge til datorelatert sensitiv informasjon.
+
+### OCR-funksjon er nå inkludert i Redactor
+
+Redactor-modulen inneholder også en innebygd **OCR**-funksjon.
+
+Dette betyr at du kan lime inn et skjermbilde, trykke **Ctrl + V** mens bildefeltet er i fokus, eller laste opp en bildefil, og deretter hente ut tekst direkte fra bildet.
+
+OCR-resultatet kan enten:
+- settes inn som **råtekst**, eller
+- sendes direkte til feltet for **spesifikke begreper** for raskere oppsett av sladding
+
+Dette gjør det enklere å sladde sensitivt innhold både fra transkripsjoner og fra skjermbilder eller annet bildebasert materiale.
+
+---
+
+## 7. mars 2026
+
+**GPT-5.4** er nå lagt til i OpenAI-modellmenyen for notatgenerering.
+
+### Prising:
+GPT-5.4 koster for øyeblikket **$2.50 per 1 million input-tokens** og **$15.00 per 1 million output-tokens**.
+
+### Viktig om personvern / GDPR:
+Vær oppmerksom på at bruk av **GPT-5.4** og de andre **OpenAI-modellene** i dagens standardoppsett **ikke er GDPR-kompatibelt for sensitive/pasientrelaterte data**, fordi data **ikke behandles i EU som standard**, og OpenAI opplyser at API-data kan **lagres i opptil 30 dager før sletting**.
+
+For arbeidsflyter for notatgenerering som krever et **GDPR-kompatibelt oppsett**, anbefales **AWS Bedrock** i stedet.
+
+### Oppdatering av promptmodulen:
+Promptmodulen er nå oppdatert slik at prompt-slottene kan **omorganiseres med dra-og-slipp**.
+
+Slik omorganiserer du slottene:
+- Åpne prompt-slotmenyen
+- Klikk og hold på drag-håndtaket ved siden av en slot
+- Dra slotten opp eller ned til ønsket posisjon
+- Slipp museknappen for å lagre den nye rekkefølgen
+
+---
+
+## 4. mars 2026
+
+### Midlertidig kapasitetsproblem med Claude Opus 4.6 (AWS Bedrock)
+
+Det er for øyeblikket rapportert perioder hvor **Claude Sonnet/Opus 4.6** via AWS Bedrock kan være overbelastet. Dette kan føre til at generering av notater noen ganger feiler og gir en feilmelding fra AWS.
+
+Hvis dette skjer, anbefales det å **midlertidig bruke Claude Sonnet/Opus 4.5**, som fungerer stabilt og gir svært tilsvarende resultater.
+
+Dette skyldes kapasitet hos AWS/Bedrock og ikke et problem i appen. Når belastningen på Opus 4.6 normaliserer seg vil modellen fungere som normalt igjen.
+
+---
+
+## 3. mars 2026
+
+Claude Sonnet 4.6 og Claude Opus 4.6 er nå lagt til i AWS Bedrock-modellmenyen i appen.
+
+Disse 4.6-modellene er nyeste generasjon og gir generelt bedre resonnering, bedre forståelse av instruksjoner, og høyere kvalitet på sammendrag/notater enn 4.5—spesielt for lengre eller mer komplekse transkripsjoner.
+
+**Pris:** Claude Sonnet 4.6 koster det samme som Claude Sonnet 4.5, og Claude Opus 4.6 koster det samme som Claude Opus 4.5.
+
+### Viktig (AWS-brukere): Oppdater stacken din
+
+For å bruke Sonnet 4.6 / Opus 4.6 må du oppdatere den eksisterende AWS proxy-stacken din (CloudFormation). Oppdateringen aktiverer nødvendig Bedrock-oppsett for disse modellene.
+
+**Slik oppdaterer du funksjonen:**  
+Gå til forsiden, klikk på «AWS guide»-knappen ved siden av AWS Bedrock-feltene, scroll helt til bunnen, og følg instruksjonene under «SLIK OPPDATERER DU STACKEN (CLOUDFORMATION)». Når oppdateringen er fullført kan du velge og bruke Sonnet 4.6 / Opus 4.6 i appen.
+
+<a href="index.html#bedrock-update-stack" target="_blank" rel="noopener">SLIK OPPDATERER DU STACKEN (CLOUDFORMATION)</a>
+
+---
+
+## 2.mars 2026
+
+Denne nye info-knappen viser løpende statusmeldinger og endringer i webappen (som nye funksjoner, feilrettinger og viktige beskjeder).
+
+### AWS time limit oppdatering:
+
+Frem til nå har notater generert med AWS modellene hatt en tidsgrense på 45 sec, som gjør at hvis det tar mer en 45 sec å generere notatet så vil det resultere i en feilmelding. Dette problemet er nå løst ved at tidsgrensen er økt til 2,5 min, som vil være mer en nok for å generere et notat.
+
+For å utføre denne oppdateringen så må du som bruker oppdatere AWS funksjonen som du allerede har laget hvis du har brukt AWS modellene så langt.
+
+For å oppdatere din funksjon; Gå til forsiden, klikk “AWS guide”-knappen ved siden av feltene for AWS Bedrock key, scroll helt nederst på siden, og følg instrusjonene ved "SLIK OPPDATERER DU STACKEN (CLOUDFORMATION)". Når dette er gjort, vil problemet være løst.

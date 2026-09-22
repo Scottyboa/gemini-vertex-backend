@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fakturamaker.no</title>
+  <meta name="description" content="Lag en enkel faktura og skriv den ut som PDF.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-width: 950px;
+      --paper-height: 1115px;
+      --ink: #25282b;
+      --muted: #9aa0a6;
+      --field: #f7f8f9;
+      --field-border: #d7dadd;
+      --blue: #168bd1;
+      --giro-yellow: #fff56e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      min-width: 990px;
+      background: #dddddd;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #dddddd;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, textarea { font: inherit; }
+
+    .app-shell {
+      width: var(--page-width);
+      margin: 0 auto;
+    }
+
+    .app-header {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.8px;
+      color: #333;
+      text-shadow: 0 1px rgba(255,255,255,.75);
+    }
+
+    .brand a { color: inherit; text-decoration: none; }
+
+    .pdf-button {
+      width: 93px;
+      height: 49px;
+      border: 0;
+      border-radius: 3px;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: inset 0 -1px rgba(0,0,0,.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s ease, transform .05s ease;
+    }
+
+    .pdf-button:hover { background: #087fc4; }
+    .pdf-button:active { transform: translateY(1px); }
+    .pdf-button svg { width: 15px; height: 17px; }
+
+    .billing {
+      position: relative;
+      width: var(--page-width);
+      height: var(--paper-height);
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(0,0,0,.27);
+      overflow: hidden;
+    }
+
+    .field {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--field-border);
+      border-radius: 4px;
+      outline: none;
+      color: #32363a;
+      background: var(--field);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.025);
+      transition: border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+
+    .field::placeholder { color: #a9afb5; opacity: 1; }
+
+    .field:hover { border-color: #c7cbd0; }
+
+    .field:focus {
+      border-color: #6db6e4;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(22,139,209,.13);
+    }
+
+    .company-name {
+      position: absolute;
+      left: 61px;
+      top: 61px;
+      width: 358px;
+      height: 42px;
+      padding: 3px 6px 5px;
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .contact-info {
+      position: absolute;
+      left: 424px;
+      top: 30px;
+      width: 285px;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 95px 190px;
+      grid-template-rows: repeat(4, 32px);
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .contact-info dt,
+    .contact-info dd { margin: 0; }
+
+    .contact-info dt { padding-left: 0; color: #2f3336; }
+
+    .contact-info .field {
+      height: 30px;
+      padding: 4px 5px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .invoice-word {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      margin: 0;
+      font-size: 26px;
+      line-height: 39px;
+      font-weight: 400;
+    }
+
+    .recipient {
+      position: absolute;
+      left: 61px;
+      top: 185px;
+      width: 358px;
+      height: 120px;
+      padding: 6px;
+      resize: none;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.45;
+    }
+
+    .invoice-meta {
+      position: absolute;
+      left: 609px;
+      top: 184px;
+      width: 300px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .invoice-meta td {
+      height: 44px;
+      padding: 4px;
+      background: #ededed;
+      border-bottom: 1px solid #d6d6d6;
+    }
+
+    .invoice-meta tr:last-child td { border-bottom: 0; }
+    .invoice-meta .meta-label { width: 152px; }
+
+    .invoice-meta .field {
+      height: 30px;
+      padding: 4px 6px;
+      background: #f8f9fa;
+    }
+
+    .due-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .invoice-meta input[type="date"] { height: 32px; }
+    .due-control .field { width: 48px; }
+
+    .items-area {
+      position: absolute;
+      left: 60px;
+      top: 360px;
+      width: 830px;
+      height: 205px;
+    }
+
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 13px;
+    }
+
+    .items-table col:nth-child(1) { width: 194px; }
+    .items-table col:nth-child(2) { width: 181px; }
+    .items-table col:nth-child(3) { width: 111px; }
+    .items-table col:nth-child(4) { width: 106px; }
+    .items-table col:nth-child(5) { width: 126px; }
+    .items-table col:nth-child(6) { width: 92px; }
+    .items-table col:nth-child(7) { width: 20px; }
+
+    .items-table th {
+      height: 32px;
+      padding: 0 5px 7px;
+      border-bottom: 1px solid #dddddd;
+      text-align: left;
+      vertical-align: bottom;
+      font-weight: 700;
+      font-size: 13px;
+      color: #111;
+    }
+
+    .items-table th.num,
+    .items-table td.num { text-align: right; }
+
+    .items-table td {
+      height: 37px;
+      padding: 3px 4px;
+      border-bottom: 1px solid #e7e7e7;
+      vertical-align: middle;
+    }
+
+    .line-input {
+      width: 100%;
+      height: 29px;
+      padding: 3px 5px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      outline: none;
+      background: transparent;
+      color: #2c3033;
+    }
+
+    .line-input:hover { border-color: #e0e2e4; background: #fafafa; }
+    .line-input:focus { border-color: #6db6e4; background: #fff; box-shadow: 0 0 0 2px rgba(22,139,209,.11); }
+    .line-input.num { text-align: right; }
+
+    .remove-line {
+      width: 22px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #c2504c;
+      font-size: 16px;
+      line-height: 1;
+      opacity: .35;
+      cursor: pointer;
+    }
+
+    .items-table tr:hover .remove-line { opacity: 1; }
+
+    .add-line {
+      width: 136px;
+      height: 48px;
+      margin-top: 10px;
+      margin-left: 10px;
+      padding: 5px;
+      border: 0;
+      background: transparent;
+      color: #33383c;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      line-height: 27px;
+      cursor: pointer;
+    }
+
+    .add-line:hover { color: #087fc4; }
+
+    .plus-box {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid currentColor;
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .plus-box::before,
+    .plus-box::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 7px;
+      height: 1.5px;
+      background: currentColor;
+      transform: translate(-50%,-50%);
+    }
+
+    .plus-box::after { transform: translate(-50%,-50%) rotate(90deg); }
+
+    .totals {
+      position: absolute;
+      left: 680px;
+      top: 502px;
+      width: 250px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .totals td { height: 39px; padding: 4px 0; }
+    .totals .amount { width: 101px; text-align: right; font-variant-numeric: tabular-nums; }
+    .totals .grand td { font-weight: 700; }
+    .totals .grand .amount { border-top: 1px solid #d8d8d8; border-bottom: 2px solid #333; }
+
+    /* ==================== GIROBLANKETT ==================== */
+    .giro-form {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      color: #050505;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.08;
+    }
+
+    .giro-yellow {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background: var(--giro-yellow);
+    }
+
+    .giro-top-band { top: 626px; height: 92px; }
+    .giro-account-band { top: 991px; height: 36px; }
+    .giro-bottom-band { top: 1105px; height: 10px; }
+
+    .giro-label {
+      position: absolute;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .receipt-title { left: 65px; top: 632px; font-size: 16px; }
+    .receipt-account-label { left: 66px; top: 660px; }
+    .receipt-amount-label { left: 358px; top: 657px; }
+    .payer-account-label { left: 569px; top: 657px; }
+    .receipt-form-label { left: 766px; top: 657px; }
+
+    .receipt-white-box {
+      position: absolute;
+      top: 669px;
+      height: 38px;
+      background: #fff;
+    }
+
+    .receipt-amount-box { left: 357px; width: 165px; }
+    .payer-account-box { left: 569px; width: 184px; }
+    .receipt-form-box { left: 766px; width: 138px; }
+
+    .payment-info-label { left: 66px; top: 727px; }
+    .giro-title { left: 501px; top: 727px; font-size: 19px; line-height: 1; }
+    .due-date-label { left: 685px; top: 728px; width: 62px; }
+    .signature-label { left: 513px; top: 762px; }
+    .payer-label { left: 66px; top: 869px; }
+    .payee-label { left: 513px; top: 869px; }
+
+    .signature-line {
+      position: absolute;
+      left: 524px;
+      top: 837px;
+      width: 344px;
+      height: 2px;
+      background: var(--giro-yellow);
+    }
+
+    .corner-frame {
+      position: absolute;
+    }
+
+    .corner-frame .corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+    }
+
+    .corner-frame .top-left { left: 0; top: 0; border-left: 1px solid #111; border-top: 1px solid #111; }
+    .corner-frame .top-right { right: 0; top: 0; border-right: 1px solid #111; border-top: 1px solid #111; }
+    .corner-frame .bottom-left { left: 0; bottom: 0; border-left: 1px solid #111; border-bottom: 1px solid #111; }
+    .corner-frame .bottom-right { right: 0; bottom: 0; border-right: 1px solid #111; border-bottom: 1px solid #111; }
+
+    .due-date-frame { left: 753px; top: 726px; width: 143px; height: 37px; }
+    .signature-frame { left: 503px; top: 773px; width: 393px; height: 88px; }
+    .payer-frame { left: 54px; top: 879px; width: 393px; height: 104px; }
+    .payee-frame { left: 503px; top: 879px; width: 393px; height: 104px; }
+
+    .debit-label { left: 134px; top: 997px; width: 45px; text-align: center; }
+    .receipt-return-label { left: 806px; top: 997px; width: 55px; text-align: left; }
+
+    .account-cells {
+      position: absolute;
+      left: 191px;
+      top: 992px;
+      height: 32px;
+      display: flex;
+      gap: 3px;
+    }
+
+    .account-cells span { width: 24px; height: 32px; background: #fff; }
+
+    .bottom-column-label { top: 1037px; }
+    .kid-label { left: 44px; }
+    .kroner-label { left: 363px; }
+    .ore-label { left: 478px; }
+    .to-account-label { left: 592px; }
+    .blankett-label { left: 778px; }
+
+    .bottom-divider {
+      position: absolute;
+      top: 1035px;
+      height: 68px;
+      border-left: 2px solid #111;
+    }
+
+    .divider-one { left: 37px; }
+    .divider-two { left: 357px; }
+    .divider-three { left: 471px; border-color: var(--giro-yellow); }
+
+    .payment-info {
+      position: absolute;
+      left: 67px;
+      top: 773px;
+      width: 358px;
+      height: 52px;
+      padding: 6px;
+      resize: none;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.35;
+      z-index: 3;
+    }
+
+    .payee-address {
+      position: absolute;
+      left: 531px;
+      top: 916px;
+      width: 242px;
+      z-index: 3;
+    }
+
+    .payee-address .field {
+      height: 30px;
+      padding: 4px 5px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .bottom-fields {
+      position: absolute;
+      left: 51px;
+      top: 1054px;
+      width: 879px;
+      height: 30px;
+      z-index: 3;
+    }
+
+    .bottom-fields > * { position: absolute; top: 0; }
+    .bottom-fields > .sr-only { width: 1px; height: 1px; }
+    #kid { left: 0; width: 278px; }
+    #wholeAmount { left: 290px; width: 70px; }
+    #decimalAmount { left: 414px; width: 70px; }
+    #accountNumber { left: 540px; width: 148px; }
+    #formId { left: 730px; width: 148px; }
+
+    .bottom-fields .field {
+      height: 30px;
+      padding: 4px 5px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .money-part {
+      text-align: center;
+      font-size: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .app-footer {
+      height: 101px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-footer a {
+      color: #c84b47;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .app-footer a:hover { text-decoration: underline; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 989px) {
+      html { min-width: 0; }
+      body { overflow-x: auto; }
+      .app-shell { margin-left: 20px; margin-right: 20px; }
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 9mm; }
+      html, body {
+        min-width: 0;
+        margin: 0;
+        background: #fff;
+      }
+      .app-header, .app-footer, .add-line, .remove-line { display: none !important; }
+      .app-shell { width: 100%; margin: 0; }
+      .billing {
+        width: var(--page-width);
+        height: var(--paper-height);
+        margin: 0 auto;
+        box-shadow: none;
+        zoom: .7559;
+      }
+      .billing, .billing * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      .giro-yellow, .signature-line { background-color: var(--giro-yellow) !important; }
+      .invoice-meta td { background-color: #f2f2f2 !important; }
+      .field::placeholder, .line-input::placeholder {
+        color: #a9afb5 !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1 class="brand"><a href="#" aria-label="Fakturamaker">Fakturamaker</a></h1>
+      <button class="pdf-button" type="button" id="pdfButton" aria-label="Skriv ut eller lagre faktura som PDF">
+        <span>PDF</span>
+        <svg viewBox="0 0 16 18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M2.5 1.5h7l4 4v11h-11z"/>
+          <path d="M9.5 1.5v4h4M5 9.2h6M5 12h6M5 14.8h4"/>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <form class="billing" id="invoiceForm" autocomplete="off" onsubmit="return false">
+        <label class="sr-only" for="companyName">Firmanavn</label>
+        <input class="field company-name" id="companyName" name="companyName" type="text" placeholder="Ditt firmanavn">
+
+        <dl class="contact-info">
+          <dt><label for="orgNumber">Org. nr</label></dt>
+          <dd><input class="field" id="orgNumber" name="companyOrgNumber" type="text" placeholder="123123456 MVA"></dd>
+          <dt><label for="companyEmail">E-post</label></dt>
+          <dd><input class="field" id="companyEmail" name="companyEmail" type="email" placeholder="post@firma.no"></dd>
+          <dt><label for="companyWeb">Web</label></dt>
+          <dd><input class="field" id="companyWeb" name="companyWeb" type="text" placeholder="https://firma.no"></dd>
+          <dt><label for="companyPhone">Telefon</label></dt>
+          <dd><input class="field" id="companyPhone" name="companyPhone" type="tel" placeholder="22 22 55 55"></dd>
+        </dl>
+
+        <p class="invoice-word">Faktura</p>
+
+        <label class="sr-only" for="recipient">Mottakers navn og adresse</label>
+        <textarea class="field recipient" id="recipient" name="recipient" placeholder="Mottakers navn og adresse"></textarea>
+
+        <table class="invoice-meta" aria-label="Fakturadetaljer">
+          <tbody>
+            <tr>
+              <td class="meta-label"><label for="invoiceNumber">Fakturanr.</label></td>
+              <td><input class="field" id="invoiceNumber" name="billingId" type="text" inputmode="numeric"></td>
+            </tr>
+            <tr>
+              <td class="meta-label"><label for="invoiceDate">Fakturadato</label></td>
+              <td><input class="field" id="invoiceDate" name="billingDate" type="date"></td>
+            </tr>
+            <tr>
+              <td class="meta-label"><label for="dueDays">Forfall</label></td>
+              <td>
+                <div class="due-control">
+                  <input class="field" id="dueDays" name="billingDueDays" type="number" min="0" step="1" value="14">
+                  <span>dager</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section class="items-area" aria-label="Fakturalinjer">
+          <table class="items-table">
+            <colgroup><col><col><col><col><col><col><col></colgroup>
+            <thead>
+              <tr>
+                <th>Beskrivelse</th>
+                <th class="num">Enhetspris</th>
+                <th class="num">Antall</th>
+                <th class="num">Netto</th>
+                <th class="num">Mva %</th>
+                <th class="num">Sum</th>
+                <th><span class="sr-only">Fjern</span></th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody"></tbody>
+          </table>
+          <button class="add-line" id="addLine" type="button"><span class="plus-box" aria-hidden="true"></span>Legg til linje</button>
+        </section>
+
+        <table class="totals" aria-label="Fakturasummer">
+          <tbody>
+            <tr><td>Totalt eks. mva</td><td class="amount" id="subtotal">0,00 kr</td></tr>
+            <tr><td>Merverdiavgift</td><td class="amount" id="vatTotal">0,00 kr</td></tr>
+            <tr class="grand"><td>Å betale</td><td class="amount" id="grandTotal">0,00 kr</td></tr>
+          </tbody>
+        </table>
+
+        <section class="giro-form" aria-label="Giroblankett">
+          <div class="giro-yellow giro-top-band"></div>
+          <div class="giro-yellow giro-account-band"></div>
+          <div class="giro-yellow giro-bottom-band"></div>
+
+          <strong class="giro-label receipt-title">Kvittering</strong>
+          <span class="giro-label receipt-account-label">Innbetalt til konto</span>
+          <span class="giro-label receipt-amount-label">Beløp</span>
+          <span class="giro-label payer-account-label">Betalerens kontonummer</span>
+          <span class="giro-label receipt-form-label">Blankettnummer</span>
+          <span class="receipt-white-box receipt-amount-box"></span>
+          <span class="receipt-white-box payer-account-box"></span>
+          <span class="receipt-white-box receipt-form-box"></span>
+
+          <span class="giro-label payment-info-label">Betalingsinformasjon</span>
+          <strong class="giro-label giro-title">GIRO</strong>
+          <span class="giro-label due-date-label">Betalings-<br>frist</span>
+          <span class="giro-label signature-label">Underskrift ved girering</span>
+          <span class="signature-line"></span>
+
+          <div class="corner-frame due-date-frame" aria-hidden="true">
+            <i class="corner top-left"></i><i class="corner top-right"></i><i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+          </div>
+          <div class="corner-frame signature-frame" aria-hidden="true">
+            <i class="corner top-left"></i><i class="corner top-right"></i><i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+          </div>
+
+          <span class="giro-label payer-label">Betalt av</span>
+          <span class="giro-label payee-label">Betalt til</span>
+          <div class="corner-frame payer-frame" aria-hidden="true">
+            <i class="corner top-left"></i><i class="corner top-right"></i><i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+          </div>
+          <div class="corner-frame payee-frame" aria-hidden="true">
+            <i class="corner top-left"></i><i class="corner top-right"></i><i class="corner bottom-left"></i><i class="corner bottom-right"></i>
+          </div>
+
+          <span class="giro-label debit-label">Belast<br>konto</span>
+          <div class="account-cells" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <span class="giro-label receipt-return-label">Kvittering<br>tilbake</span>
+
+          <span class="giro-label bottom-column-label kid-label">Kundeidentifikasjon (KID)</span>
+          <span class="giro-label bottom-column-label kroner-label">Kroner</span>
+          <span class="giro-label bottom-column-label ore-label">Øre</span>
+          <span class="giro-label bottom-column-label to-account-label">Til konto</span>
+          <span class="giro-label bottom-column-label blankett-label">Blankettnummer</span>
+          <span class="bottom-divider divider-one"></span>
+          <span class="bottom-divider divider-two"></span>
+          <span class="bottom-divider divider-three"></span>
+        </section>
+
+        <label class="sr-only" for="paymentInfo">Betalingsinformasjon</label>
+        <textarea class="field payment-info" id="paymentInfo" name="paymentInfo" placeholder="Kort beskrivelse av fakturaen"></textarea>
+
+        <div class="payee-address">
+          <label class="sr-only" for="companyAddress">Firmaadresse</label>
+          <input class="field" id="companyAddress" name="companyAddress" type="text" placeholder="Din firmadresse">
+          <label class="sr-only" for="companyPostAddress">Postnummer og sted</label>
+          <input class="field" id="companyPostAddress" name="companyPostAddress" type="text" placeholder="0000 Stedsnavn">
+        </div>
+
+        <div class="bottom-fields">
+          <label class="sr-only" for="kid">KID</label>
+          <input class="field" id="kid" name="kid" type="text" inputmode="numeric" aria-label="KID">
+          <output class="money-part" id="wholeAmount" aria-label="Kroner">0</output>
+          <output class="money-part" id="decimalAmount" aria-label="Øre">0</output>
+          <label class="sr-only" for="accountNumber">Kontonummer</label>
+          <input class="field" id="accountNumber" name="accountNumber" type="text" inputmode="numeric" placeholder="Ditt kontonummer">
+          <label class="sr-only" for="formId">Blankettnummer</label>
+          <input class="field" id="formId" name="formId" type="text" inputmode="numeric" aria-label="Blankettnummer">
+        </div>
+      </form>
+    </main>
+
+    <footer class="app-footer"><a href="mailto:support@fakturamaker.no">support@fakturamaker.no</a></footer>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const items = [];
+      const body = document.getElementById('itemsBody');
+      const addLineButton = document.getElementById('addLine');
+      const money = new Intl.NumberFormat('nb-NO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+      const parseNumber = value => {
+        const normalized = String(value ?? '').trim().replace(/\s/g, '').replace(',', '.');
+        const result = Number.parseFloat(normalized);
+        return Number.isFinite(result) ? result : 0;
+      };
+
+      const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      })[character]);
+
+      function calculate() {
+        let subtotal = 0;
+        let vat = 0;
+
+        items.forEach(item => {
+          const net = parseNumber(item.unitPrice) * parseNumber(item.quantity);
+          subtotal += net;
+          vat += net * parseNumber(item.vat) / 100;
+        });
+
+        const total = subtotal + vat;
+        document.getElementById('subtotal').textContent = `${money.format(subtotal)} kr`;
+        document.getElementById('vatTotal').textContent = `${money.format(vat)} kr`;
+        document.getElementById('grandTotal').textContent = `${money.format(total)} kr`;
+
+        const roundedOre = Math.round((total + Number.EPSILON) * 100);
+        document.getElementById('wholeAmount').textContent = String(Math.floor(roundedOre / 100));
+        document.getElementById('decimalAmount').textContent = String(roundedOre % 100);
+      }
+
+      function renderItems(focusLast = false) {
+        body.innerHTML = items.map((item, index) => {
+          const net = parseNumber(item.unitPrice) * parseNumber(item.quantity);
+          const total = net * (1 + parseNumber(item.vat) / 100);
+          return `
+            <tr data-index="${index}">
+              <td><input class="line-input" data-key="description" value="${escapeHtml(item.description)}" aria-label="Beskrivelse"></td>
+              <td><input class="line-input num" data-key="unitPrice" value="${escapeHtml(item.unitPrice)}" inputmode="decimal" aria-label="Enhetspris"></td>
+              <td><input class="line-input num" data-key="quantity" value="${escapeHtml(item.quantity)}" inputmode="decimal" aria-label="Antall"></td>
+              <td class="num line-net">${net ? money.format(net) : ''}</td>
+              <td><input class="line-input num" data-key="vat" value="${escapeHtml(item.vat)}" inputmode="decimal" aria-label="Mva prosent"></td>
+              <td class="num line-total">${total ? money.format(total) : ''}</td>
+              <td><button class="remove-line" type="button" data-remove="${index}" title="Fjern linje" aria-label="Fjern linje">×</button></td>
+            </tr>`;
+        }).join('');
+
+        if (focusLast && body.lastElementChild) {
+          body.lastElementChild.querySelector('[data-key="description"]').focus();
+        }
+        calculate();
+      }
+
+      function refreshRow(row, index) {
+        const item = items[index];
+        const net = parseNumber(item.unitPrice) * parseNumber(item.quantity);
+        const total = net * (1 + parseNumber(item.vat) / 100);
+        row.querySelector('.line-net').textContent = net ? money.format(net) : '';
+        row.querySelector('.line-total').textContent = total ? money.format(total) : '';
+        calculate();
+      }
+
+      addLineButton.addEventListener('click', () => {
+        items.push({ description: '', unitPrice: '', quantity: '', vat: items.at(-1)?.vat ?? '25' });
+        renderItems(true);
+      });
+
+      body.addEventListener('input', event => {
+        const input = event.target.closest('[data-key]');
+        if (!input) return;
+        const row = input.closest('tr');
+        const index = Number(row.dataset.index);
+        items[index][input.dataset.key] = input.value;
+        refreshRow(row, index);
+      });
+
+      body.addEventListener('click', event => {
+        const button = event.target.closest('[data-remove]');
+        if (!button) return;
+        items.splice(Number(button.dataset.remove), 1);
+        renderItems();
+      });
+
+      document.getElementById('pdfButton').addEventListener('click', () => {
+        if (document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur();
+        window.print();
+      });
+
+      calculate();
+    })();
+  </script>
+</body>
+</html>

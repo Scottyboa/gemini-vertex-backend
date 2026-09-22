@@ -1,0 +1,469 @@
+## 16 September, 2026
+
+### Better Workspaces, Mini Panel, backups and new AI models
+
+Several improvements have been added to make it easier to work with multiple tasks, restore previous content and move settings between devices.
+
+#### Workspaces and history
+
+You can now:
+
+- **Clone a Workspace** to create an identical copy.
+- Reorder Workspaces by dragging them.
+- Share history between Workspaces cloned from each other.
+- Restore a previous history entry into the active Workspace or a new Workspace.
+- Restore the transcript, supplementary information and generated note together.
+- Keep the selected Auto-copy setting when exporting and importing Workspace Sets.
+
+Workspaces created with **+** continue to have their own separate history. Up to 12 Workspaces can be open at the same time.
+
+#### Improved Mini Panel
+
+The Mini Panel now synchronizes more reliably with the selected browser tab and Workspace. This makes it more dependable when controlling recordings and note generation from the panel.
+
+**Google Chrome is recommended for the Mini Panel**, as other browsers may not work properly with this function.
+
+#### New and updated AI models
+
+The following models are now available directly through OpenAI:
+
+- **GPT-5.6 Sol**
+- **GPT-5.6 Terra**
+- **GPT-5.6 Luna**
+- **GPT-5 Nano**
+
+Through Requesty, **Gemini 3.7 Flash** has been replaced by **Gemini 3.8 Flash EU**. The following models have also been added:
+
+- **DeepSeek V4 Pro**
+- **DeepSeek V4.1 Flash**
+
+Reasoning options, token prices and cost calculations have been updated for the new models.
+
+#### Easier backup and restoration
+
+One shared **Cloud Backup Password** can now be used for API keys, prompts and Workspace Sets during the active browser-tab session.
+
+After API keys are imported from Google Drive or Microsoft OneDrive, the app can also find available prompt and Workspace Set backups. You can then choose which backups you want to restore.
+
+Older backups that use separate passwords remain supported. Importing a Workspace Set now asks for its encryption password only once.
+
+#### Simpler prompts and additional improvements
+
+The visible Prompt Profile ID feature has been removed. The prompt list is now stored more simply in the browser, while all 20 prompt slots and their names can still be included in backups.
+
+---
+
+## 20 August, 2026
+
+### New Workspaces, two Mini Panel views and separate history
+
+You can now use multiple separate **Workspaces** within the same browser tab. A collection of Workspaces is called a **Workspace Set**. Each Workspace keeps its own text, selected prompt, providers, models and settings. Recordings and note generation can continue in the background while you switch Workspaces.
+
+The Mini Panel now has two views. Use the icon in the upper-right corner of the panel to switch between them:
+
+- **Mini Panel — Browser Tabs** lets you switch between and control separate Transcribe Notes tabs. This is useful if you prefer one Workspace per browser tab.
+- **Mini Panel — Workspaces** shows and controls all Workspaces in the selected Transcribe Notes tab. This is useful if you prefer multiple work areas within one browser tab.
+
+You can export or import a Workspace Set as a local JSON file or through Microsoft OneDrive and Google Drive. The backup includes the number and order of Workspaces, names, selected prompt slots with their prompt text and labels, providers, models, reasoning selections, relevant checkboxes, and whether modules such as Secondary Note and Redactor are open.
+
+Transcripts, supplementary information, generated notes, history, audio recordings, API keys, passwords and other patient information are not included. Cloud backups are encrypted in the browser. Local JSON files are readable and should be stored securely.
+
+The history column now follows the active Workspace automatically. Each Workspace has its own log containing the 30 most recent completed primary note generations. Opening a history item displays the transcript, the supplementary information used, and the generated note in three equally sized fields. History is stored only for the current tab session and is removed when the tab is closed or the history is cleared.
+
+---
+
+## 17 August, 2026
+
+### Easy backup of API keys and custom prompts to OneDrive or Google Drive
+
+You can now back up both your API keys and custom prompts directly to your own **Microsoft OneDrive** or **Google Drive**. This makes it easier to move to a new computer or browser without having to download, store, and locate separate JSON files.
+
+#### API keys
+
+Before exporting, make sure that **every key and secret you want to back up has been completely entered in the correct field on the front page**. The backup uses the values present in the fields when you export, and empty fields are saved as empty. Then select **Export keys**, choose **Microsoft OneDrive** or **Google Drive**, and create a separate encryption password.
+
+To retrieve the keys later, select **Import keys**, choose the same cloud service, sign in with the same Microsoft or Google account, and enter the encryption password. The fields do not need to be filled in before importing. The keys are retrieved from the backup and inserted automatically. Review the fields and select **Enter** as usual.
+
+#### Custom prompts
+
+Custom prompts can now be backed up in the same simple way. First select the prompt profile you want to back up and make sure that **all prompts you want to include are completely entered in their prompt slots**. Select **Export** above the Custom Prompt field and choose a JSON file, **Microsoft OneDrive**, or **Google Drive**. A cloud export includes all 20 prompt slots and their labels from the active prompt profile, including any slots that are empty.
+
+To retrieve the prompts later, select the desired active prompt profile, click **Import**, choose the same cloud service, sign in with the same Microsoft or Google account, and enter the encryption password. A prompt backup must have been exported to that service beforehand. Import replaces all 20 prompt slots and labels in the active profile. If the backup was created from a differently named profile, the app displays a clear warning before anything is replaced; importing does not automatically switch profiles.
+
+#### Encryption and storage
+
+The API keys and prompts are encrypted in your browser before the backup files are uploaded. The backups are stored only in the signed-in user's cloud storage – not in the app developer's Microsoft or Google account. The app can access only its own OneDrive folder or private Google Drive app storage and cannot overwrite the user's other files. The API-key backup and prompt backup are also stored as separate files, so they cannot overwrite each other. The encryption password is never stored or uploaded, so it is important to remember it. A backup cannot be opened without the correct password.
+
+A new export replaces only the previous backup of the same type in the selected cloud service. For example, a new OneDrive prompt export replaces the previous OneDrive prompt backup, but does not affect the API-key backup, the Google Drive backup, or other files. The existing JSON file export and import options remain available for users who prefer them.
+
+---
+
+## 28 July, 2026
+
+### New history for generated notes
+
+A new history column has been added to the left side of the app. It contains the 30 most recent generated notes together with the transcripts used to create them. Select an item to open its transcript and note. The history remains after refreshing the page, but is removed when the tab is closed or when you select **Clear**.
+
+---
+
+## 25 July, 2026
+
+### New secondary note-generation module
+
+The app now includes a dedicated module for secondary note generation. It can be used to summarize larger amounts of text, such as excerpts from a patient record. The summary can then be transferred to the supplementary information field and used as background when generating the final note.
+
+Processing large amounts of text can require many tokens. It may therefore be useful to use an inexpensive model, such as **GPT-5 Nano**, for the initial summary and then a more powerful model, such as **Claude Opus 5**, for the primary note generation.
+
+### New and updated Requesty models
+
+The Requesty provider, introduced in the 3 July update, has received the following changes:
+
+- **GPT-5 Nano** has been added as a new and highly affordable option.
+- **Claude Opus 4.8** has been replaced by **Claude Opus 5**, running through AWS Bedrock in Stockholm (`eu-north-1`).
+- **GPT-5.5** and **Claude Sonnet 5** remain available.
+
+Claude Opus 5 has the same token price as the previous Opus 4.8 model: **$5.50 per 1 million input tokens** and **$27.50 per 1 million output tokens**.
+
+All Requesty models in the app use EU-based model endpoints and Requesty's EU router. The properties described in the previous update—zero data retention, no use of data for model training, and processing within the EU—continue to apply.
+
+<a href="index.html#requesty-api-key" target="_blank" rel="noopener">**Click here for guidance on how to create a Requesty account, top up credits, and obtain an API key**</a> 
+
+---
+
+## 3 July, 2026
+
+### New Gemini models in Google Vertex: Gemini 3.5 Flash and Gemini 3.1 Flash-Lite
+
+Two new Gemini models have been added to the **Google Vertex** provider for note generation:
+
+- **Gemini 3.5 Flash** — Google's newest Flash model, delivering near-Pro intelligence at Flash-tier speed and cost. Read more on the official page: <a href="https://deepmind.google/models/gemini/flash/" target="_blank" rel="noopener">Gemini 3.5 Flash (Google DeepMind)</a>
+- **Gemini 3.1 Flash-Lite** — Google's fastest and most cost-efficient Gemini model, well suited for quick, high-volume tasks. Read more here: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/" target="_blank" rel="noopener">Gemini 3.1 Flash-Lite (Google)</a>
+
+**Important:** In order to use these new models via the Google Vertex provider, you are required to **update your Google Vertex backend**. To do this, simply follow the update instructions at the very end of the <a href="index.html#vertex-update-backend" target="_blank" rel="noopener">**Google Vertex guide**</a> (the link opens the guide directly at the update section).
+
+### New GDPR-friendly note-generation provider: Requesty
+
+A new note-generation provider has been added to the app: **Requesty**.
+
+Requesty is an LLM gateway that gives you access to top models from several providers through a single API key. In this app, Requesty is used via its **EU endpoint** with EU-hosted model deployments — meaning **zero data retention**, **no use of your data for model training**, and **all data processing within the EU**.
+
+Using the Requesty provider in this app, you can generate notes with **GPT-5.5**, **Claude Opus 4.8**, and **Claude Sonnet 5** — some of the strongest models available today — in a GDPR-friendly way.
+
+New Requesty accounts also receive **$10 USD in free credits**, so you can try the provider right away before topping up credits later.
+
+<a href="index.html#requesty-api-key" target="_blank" rel="noopener">**Click here for guidance on how to obtain a Requesty API key**</a> — the link opens the front page directly at the Requesty section of the "API key - How to Get" guide.
+
+---
+
+## 8 May, 2026
+
+### Temporary loss of access to Claude Opus 4.7 in AWS Bedrock
+
+There are currently reports that **AWS Bedrock has removed or limited access to Claude Opus 4.7** for many accounts, without any clear explanation from AWS so far as to why this has happened.
+
+The issue appears to have started around **1 May, 2026**. Users who previously had access to Opus 4.7 may now receive error messages saying that the model **is not available for the account**, even directly inside AWS Bedrock Playground. This indicates that the issue is related to AWS Bedrock / model access, and not to the Transcribe Notes app itself or the CloudFormation stack.
+
+For now, we recommend using the other **Claude models via AWS Bedrock**, for example:
+
+- **Claude Haiku 4.5**
+- **Claude Sonnet 4.6**
+- **Claude Sonnet 4.5**
+- **Claude Opus 4.6**
+- **Claude Opus 4.5**
+
+We will have to wait for more information from AWS, and hopefully access to **Claude Opus 4.7** will be restored soon for affected users. If you receive an error when using Opus 4.7, choose one of the other Claude models from the model dropdown and try again.
+
+---
+
+## 25 April, 2026
+
+### GPT-5.5 added to OpenAI note generation
+
+OpenAI's newest model, **GPT-5.5**, has now been added to the model dropdown when using OpenAI for note generation. Like the other GPT-5.x models, you can choose between **streaming** and **non-streaming** mode, and you can adjust the **reasoning effort** (None / Low / Medium / High).
+
+GPT-5.5 is OpenAI's smartest and most capable model yet. Compared to GPT-5.4, it follows complex instructions more precisely, is stronger at multi-step reasoning, and is more efficient — it generally reaches strong results with fewer reasoning tokens at the same reasoning effort. OpenAI describes it as a "new class of intelligence" intended for serious professional work.
+
+**Pricing — GPT-5.5 vs GPT-5.4 (USD per 1M tokens):**
+
+| Model | Input | Output |
+| --- | --- | --- |
+| GPT-5.4 | $2.50 | $15.00 |
+| GPT-5.5 | $5.00 | $30.00 |
+
+In other words, GPT-5.5 is about **twice as expensive per token** as GPT-5.4. Because GPT-5.5 is more token-efficient in practice, the real-world cost difference per finished note is typically smaller than 2×, but you should still expect a noticeable cost increase if you switch from 5.4 to 5.5.
+
+The default reasoning effort for OpenAI GPT-5.x models has been changed from **None** to **Low**. You can change it back at any time from the reasoning effort dropdown.
+
+### Important regarding privacy / GDPR:
+Please note that use of **GPT-5.5** and the other **OpenAI models** in the current standard setup is **not GDPR compliant for sensitive/patient data**, because data is **not processed in the EU by default**, and OpenAI states that API data may be **stored for up to 30 days before deletion**.
+
+For note generation workflows that require a **GDPR-compliant setup**, **AWS Bedrock** is recommended instead.
+
+### "Go to selected tab" button added to the Mini panel
+
+A small new button has been added to the **Mini panel**, placed directly under the close (×) button. When clicked, this button brings the Chrome tab that is currently selected in the Mini panel's tab selector into focus — even if Chrome is minimized or sitting behind another program on your screen. This is useful when the Mini panel is sticky in a corner and you are working in another program; one click takes you straight to the right Transcribe Notes tab.
+
+**This button only works in Google Chrome**, because it relies on the Auto-copy Chrome extension to actually switch tabs across windows and applications.
+
+For the button to be functional, you must **redownload the Auto-copy zip file** here: <a href="div/autocopy.zip" download>autocopy.zip</a>, and replace the old extension with this updated version. To do that, go to <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>, remove the old "Note Auto-Copy Extension", then **Load unpacked** and select the new extracted folder. The auto-copy functionality itself is unchanged — only the new "go to selected tab" capability requires the updated extension.
+
+If the new button does not appear in your Mini panel after replacing the extension, refresh the Transcribe Notes page and reopen the Mini panel.
+
+---
+
+## 22 April, 2026
+
+### Claude Opus 4.7 now available in AWS Bedrock
+
+**Claude Opus 4.7** — Anthropic's latest and most capable model — has been added to the AWS Bedrock model selection menu. You can now select it from the model dropdown when using AWS Bedrock for note generation.
+
+Opus 4.7 is an upgrade from Opus 4.6 with generally stronger performance. It follows instructions more precisely and is more thorough in its problem solving. Pricing remains the same as Opus 4.6.
+
+**To use Claude Opus 4.7, you must update your CloudFormation stack.** This adds the new model to your Lambda proxy. Your existing settings (URL, secret key, other models) will not be affected.
+
+<a href="index.html#bedrock-update-stack" target="_blank">Click here to open the AWS Bedrock update guide</a>
+
+After updating, select **Claude Opus 4.7** from the Bedrock model dropdown in the app and generate a note to verify it works.
+
+---
+
+## 13 April, 2026
+
+### New Mini panel added
+
+The app has now been updated with a new **Mini panel**.
+
+The Mini panel makes it easier to control recordings and work with transcripts/notes while keeping a smaller control window visible. It includes the most important functions from the main page, such as recording controls and quick access to transcript/note-related actions.
+
+The Mini panel is currently mainly optimized for **Google Chrome**. It will most likely also work in other browsers, but the special **sticky** behavior is primarily expected to work in Chrome.
+
+By **sticky**, this means that the Mini panel can stay visible above other browser windows and programs while you continue working elsewhere, so you do not need to keep switching back to the main app tab.
+
+In browsers such as **Safari** and **Firefox**, the Mini panel may still open and work, but the sticky always-on-top behavior should not be expected to work in the same way.
+
+### New Google AI Studio models added
+
+New models have now been added for **Google AI Studio** in the note module, including **Gemini 3.1** and **Gemini 3 Flash**.
+
+### Important regarding privacy / GDPR
+
+Please note that use of **Google AI Studio** is **not GDPR compliant** for sensitive/patient-related data in the current setup. Users must take this into consideration before using these models. On this app the best models are still the Claude models via AWS Bedrock. Information about AWS Bedrock setup can be read on the front page.
+
+### Auto-copy extension updated - Chrome
+
+The **Auto-copy** extension has now been updated so that it can also auto-copy the **transcript**, and not only the finished note.
+
+To get this new function, you must download the **Auto-copy zip file** again here: <a href="div/autocopy.zip" download>autocopy.zip</a>, and install the updated version of the chrome extension.
+
+If you installed the extension **before 13 April, 2026**, you should remove the old version first and then install the new one.
+
+### New tab color coding added
+
+If you have multiple app tabs open at the same time, each tab now gets its own **color coding**.
+
+This is visible both on the tab symbol itself and in the **tab selector** inside the Mini panel, which makes it easier to see which tab you are currently controlling.
+
+---
+
+## 30 March, 2026
+
+### New auto-copy function added for finished notes
+
+A new **Auto-copy** function has now been added to the app.
+
+When this function is enabled, finished notes are automatically copied to your clipboard as soon as note generation is complete. This means you can press **Ctrl + V** and paste the note immediately, even if the Transcribe Notes tab is not currently in focus.
+
+You can therefore continue working in another program, another browser tab, or a different window while the note is being generated. When the note is finished and copied, a **desktop notification** can also appear so you know right away that the note is ready.
+
+### How to use the auto-copy function
+
+To use this feature, you must first install the Chrome extension connected to the auto-copy function.
+
+The extension can be downloaded directly from the **Auto-copy tooltip** in the app. Open the tooltip icon next to the Auto-copy option and click the download link there.
+
+After downloading:
+1. Extract / unzip the `.zip` file so that you get a normal folder
+2. Open Chrome Extensions by going to <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>
+3. Turn on **Developer mode** in the top-right corner
+4. Click **Load unpacked**
+5. Select the extracted extension folder
+6. Refresh the Transcribe Notes page
+7. Turn on **Auto-copy** in the app
+
+A README text file is included inside the extracted folder and explains the installation steps as well.
+
+### Notifications in Windows
+
+To receive the Chrome pop-up notification when copying is complete, notifications must be allowed both in **Windows** and in **Chrome**. If either one blocks notifications, the pop-up may not appear.
+
+In Windows, go to:
+
+**Settings → System → Notifications**
+
+Make sure that:
+- Notifications are turned on
+- Google Chrome is allowed to send notifications
+
+In Chrome, notifications should also be allowed for the relevant site under:
+
+**Settings → Privacy and security → Site settings → Notifications** :contentReference[oaicite:3]{index=3}
+
+Also check that **Do Not Disturb / Focus Assist** is turned off, or that Chrome is allowed through. :contentReference[oaicite:4]{index=4}
+
+### Important for Incognito use
+
+If you use the app from an **Incognito window**, you must also allow the extension to run in Incognito mode.
+
+To do this:
+1. Open <a href="chrome://extensions" target="_blank" rel="noopener">chrome://extensions</a>
+2. Find the installed auto-copy extension
+3. Click **Details**
+4. Turn on the option that allows the extension in **Incognito**
+
+Without this setting enabled, the auto-copy function will not work inside Incognito windows.
+
+This new function can make the workflow faster and more flexible, especially if you want to keep working elsewhere while waiting for a note to finish.
+
+---
+
+## 26 March, 2026
+
+There has now been added an **Abort** button for note generation.
+
+If a note is being generated and you want to stop it, you can now click **Abort** to cancel the current generation and start a new one.
+
+There have also now been added live **word** and **token counters** for the transcription input field, the supplementary information field, and the prompt field.
+
+In addition, visual cues have been added to make it easier to see when transcription and note generation have started or finished.
+
+---
+
+## 16 March, 2026
+
+### New abort button added during recording
+
+A new **Abort** button has now been added during recording. This can be used if you want to cancel an ongoing recording without sending it for transcription.
+
+Previously, the only way to cancel a recording was to refresh(F5) the page. If you clicked **Stop** instead, the recording would be transcribed up to that point, which could also result in token cost for a recording you did not actually want to transcribe.
+
+---
+
+## 15 March, 2026
+
+### Fixed: information buttons on the front page are working again
+
+It was recently discovered that the information modules/buttons on the front page had accidentally been disabled for the last week or two.
+
+This has now been fixed, and the information buttons can once again be opened and viewed as normal.
+
+---
+
+## 11 March, 2026
+
+### Important: refresh the webpage regularly to get the newest version
+
+This app is **100% front-end**, which means updates to the app will only appear after the webpage is refreshed.
+
+If you keep the app open in a browser tab for a long time, such as for days or weeks, you may continue seeing an older version of the app even if new updates have already been released.
+
+To make sure you are using the newest version, please refresh the page regularly. On Windows, you can use **Ctrl + F5** to do a hard refresh.
+ 
+This is especially important after new updates or changes have been made to the app.
+
+---
+
+## 9 March, 2026
+
+### New redaction tools added to the Transcribe page
+
+A new **Redactor** module has now been added to the Transcribe page. This tool makes it easier to remove or mask sensitive information before further use of the transcript or extracted text.
+
+The Redactor supports both **general terms** and **specific terms**:
+- **General terms** can be reused while the tab remains open
+- **Specific terms** can be added for one-off redaction tasks
+- A built-in **birthdate helper** is also included to make it easier to add date-related sensitive information
+
+When you click **Redact**, the tool will scan the transcript and apply redaction based on the terms you have entered.
+
+### OCR support in the Redactor
+
+The Redactor module also includes a built-in **OCR** function for extracting text from screenshots or image files.
+
+You can use it in three ways:
+- Paste a screenshot into the image field
+- Press **Ctrl + V** while the image area is focused
+- Upload an image file manually
+
+The OCR tool can then be used to:
+- Extract text as **raw OCR text**
+- Send OCR text directly into the **specific terms** field for quick redaction setup
+
+This makes it easier to redact sensitive information not only from transcripts, but also from screenshots, scanned text, and other image-based content.
+
+---
+
+## 7 March, 2026
+
+**GPT-5.4** has now been added to the OpenAI model dropdown for note generation.
+
+### Pricing:
+GPT-5.4 currently costs **$2.50 per 1 million input tokens** and **$15.00 per 1 million output tokens**.
+
+### Important regarding privacy / GDPR:
+Please note that use of **GPT-5.4** and the other **OpenAI models** in the current standard setup is **not GDPR compliant for sensitive/patient data**, because data is **not processed in the EU by default**, and OpenAI states that API data may be **stored for up to 30 days before deletion**.
+
+For note generation workflows that require a **GDPR-compliant setup**, **AWS Bedrock** is recommended instead.
+
+### Prompt module update:
+The prompt module has now been updated so that prompt slots can be **reordered by drag and drop**.
+
+To reorder the slots:
+- Open the prompt slot menu
+- Click and hold the drag handle next to a slot
+- Drag the slot up or down to the desired position
+- Release the mouse to save the new order
+
+---
+
+## 4 March, 2026
+
+### Temporary capacity issues with Claude Opus 4.6 (AWS Bedrock)
+
+There are currently periods where **Claude Sonnet/Opus 4.6** on AWS Bedrock may be temporarily overloaded. This can sometimes cause note generation to fail and return an error from AWS.
+
+If this happens, we recommend **temporarily using Claude Sonnet/Opus 4.5**, which is stable and produces very similar results.
+
+This issue is related to capacity on AWS Bedrock and is **not caused by the app itself**. Once the load on Opus 4.6 normalizes, the model should work as expected again.
+
+---
+
+## 3 March 2026
+
+Claude Sonnet 4.6 and Claude Opus 4.6 have now been added to the AWS Bedrock model dropdown.
+
+These 4.6 models are the latest generation and generally deliver stronger reasoning, better instruction-following, and higher-quality summaries/notes compared to their 4.5 counterparts—especially on longer or more complex transcripts.
+
+**Pricing:** Claude Sonnet 4.6 costs the same as Claude Sonnet 4.5, and Claude Opus 4.6 costs the same as Claude Opus 4.5.
+
+### Important (AWS users): Update your stack
+
+To use Sonnet 4.6 / Opus 4.6, you must update your existing AWS proxy stack (CloudFormation). The update enables the required Bedrock configuration for these models.
+
+**How to update your function:**  
+Go to the home page, click the “AWS guide” button next to the AWS Bedrock key fields, scroll all the way to the bottom, and follow the instructions under “HOW TO UPDATE THE STACK (CLOUDFORMATION)”. Once completed, you can select and use Sonnet 4.6 / Opus 4.6 in the app.
+
+<a href="index.html#bedrock-update-stack" target="_blank" rel="noopener">HOW TO UPDATE THE STACK (CLOUDFORMATION)</a>
+
+---
+
+## 2 March 2026
+
+This new Info button shows ongoing status messages and changes in the web app (such as new features, bug fixes, and important announcements).
+
+### AWS time limit update:
+
+Up until now, notes generated with the AWS models have had a time limit of 45 sec, which means that if it takes more than 45 sec to generate the note, it will result in an error message. This issue has now been resolved by increasing the time limit to 2.5 min, which will be more than enough to generate a note.
+
+To carry out this update, you as a user must update the AWS function that you have already created if you have used the AWS models so far.
+
+To update your function; Go to the home page, click the “AWS guide” button next to the fields for the AWS Bedrock key, scroll all the way to the bottom of the page, and follow the instructions under "HOW TO UPDATE THE STACK (CLOUDFORMATION)". Once this is done, the problem will be resolved.
